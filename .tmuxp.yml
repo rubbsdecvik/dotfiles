@@ -1,0 +1,19 @@
+sessionn_name: General
+windows:
+  - window_name: Chef
+    start_directory: ~/workspace/chef
+    panes:
+      - shell_command:
+        - pwd
+        - git pull
+  - options:
+    automatic-rename: on
+  - window_name: htop
+    layout: main-vertical
+    panes:
+      - shell_command: 
+        - sudo htop
+      - shell_command:
+        - brew update
+        - brew upgrade
+  - window_name: tunnel
