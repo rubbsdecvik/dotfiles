@@ -64,6 +64,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'justinmk/vim-gtfo'
 Plugin 'mnpk/vim-jira-complete'
 Plugin 'freeo/vim-kalisi'
+Plugin 'ntpeters/vim-better-whitespace'
 
 filetype plugin indent on
 
@@ -363,6 +364,12 @@ if has("unix")
 else
   nnoremap <silent> <Leader>t :!ctags -R -f ./.git/tags .<CR>
 endif
+
+" Whitespace stuff
+" Whitespace Highlight Toggle
+nnoremap <silent> <leader>w :ToggleWhitespace<CR>
+" And Strip it
+nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 
 " Table Format (markdown files only)
