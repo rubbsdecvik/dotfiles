@@ -371,6 +371,8 @@ nnoremap <silent> <leader>w :ToggleWhitespace<CR>
 " And Strip it
 nnoremap <silent> <leader>W :StripWhitespace<CR>
 
+" prettify
+nnoremap <leader>= gg=G``
 
 " Table Format (markdown files only)
 nnoremap <silent> <leader>T :TableFormat<CR>
