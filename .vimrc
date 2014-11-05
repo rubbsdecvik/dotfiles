@@ -246,6 +246,11 @@ set backspace=indent,eol,start
 
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
+" An attempt to get clipboard support in tmux
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+
 "Json, show quotes (don't conceal)
 let g:vim_json_syntax_conceal = 0
 
@@ -358,6 +363,7 @@ if has("unix")
 else
   nnoremap <silent> <Leader>t :!ctags -R -f ./.git/tags .<CR>
 endif
+
 
 " Table Format (markdown files only)
 nnoremap <silent> <leader>T :TableFormat<CR>
