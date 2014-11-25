@@ -83,6 +83,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 bindkey '^R' history-incremental-pattern-search-backward
 
+jira_url="https://pardot.atlassian.net/"
+jira_rapid_board="true"
+
 eval "$(hub alias -s)"
 
 alias knife='nocorrect knife'
@@ -93,3 +96,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/patrick.regan/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1

@@ -58,13 +58,11 @@ Plugin 'thomwiggers/vim-colors-solarized'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
-"Plugin 'Shougo/unite.vim'
-"Plugin 'Shougo/vimproc.vim'
-"Plugin 'farseer90718/unite-workflow'
 Plugin 'justinmk/vim-gtfo'
 Plugin 'mnpk/vim-jira-complete'
 Plugin 'freeo/vim-kalisi'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'mtth/scratch.vim'
 
 filetype plugin indent on
 
