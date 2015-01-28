@@ -29,6 +29,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-vinegar'
 Plugin 'idanarye/vim-merginal'
 Plugin 'bling/vim-airline'
 Plugin 'lepture/vim-jinja'
@@ -36,18 +37,18 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'majutsushi/tagbar'
+Plugin 'vim-pandoc/vim-pandoc-after'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'SirVer/ultisnips' " New 'snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'vadv/vim-chef'
 Plugin 'sjl/gundo.vim'
-Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -55,14 +56,7 @@ Plugin 'roman/golden-ratio'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'thomwiggers/vim-colors-solarized'
-Plugin 'terryma/vim-expand-region'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'justinmk/vim-gtfo'
-Plugin 'mnpk/vim-jira-complete'
-Plugin 'freeo/vim-kalisi'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'mtth/scratch.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'wakatime/vim-wakatime'
 
@@ -110,7 +104,7 @@ autocmd FileType pandoc setlocal spell
 
 " Pandoc internal codeblock highlights
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
-let g:pandoc#formatting#mode = 'ha'
+let g:pandoc#formatting#mode = 'hA'
 let g:pandoc#formatting#textwidth = 80
 
 "let g:solarized_termcolors=256
@@ -127,7 +121,7 @@ set backup
 set writebackup
 set ttyfast
 set mouse=a
-set breakindent
+" set breakindent
 
 " Set annoying directories
 " Save your backups to a less annoying place than the current directory.
@@ -219,6 +213,9 @@ set pastetoggle=<leader>p
 
 " Open ScratchPad
 nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
+
+" Open EmailScratchPad
+nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
 
 " Json Tool Useage
 nmap <leader>j :%!python -m json.tool<CR>
