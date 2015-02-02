@@ -23,7 +23,6 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-pastie'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
@@ -59,6 +58,8 @@ Plugin 'thomwiggers/vim-colors-solarized'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'wakatime/vim-wakatime'
+Plugin 'jeetsukumaran/vim-indentwise'
+Plugin 'chrisbra/csv.vim'
 
 filetype plugin indent on
 
@@ -186,6 +187,8 @@ au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 set backspace=indent,eol,start
 
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
+
+let g:syntastic_javascript_checkers = ['jscs','jshint']
 
 " An attempt to get clipboard support in tmux
 if $TMUX == ''
