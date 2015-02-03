@@ -1,68 +1,103 @@
-set nocompatible
-filetype off
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+  " Required:
+  set runtimepath+=/Users/patrick.regan/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/vundle'
+" Required:
+call neobundle#begin(expand('/Users/patrick.regan/.vim/bundle'))
 
-" The bundles you install will be listed here
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-scriptease'
-Plugin 'tpope/vim-characterize'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-tbone'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-vinegar'
-Plugin 'idanarye/vim-merginal'
-Plugin 'bling/vim-airline'
-Plugin 'lepture/vim-jinja'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'godlygeek/tabular'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-after'
-Plugin 'elzr/vim-json'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'SirVer/ultisnips' " New 'snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'vadv/vim-chef'
-Plugin 'sjl/gundo.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'roman/golden-ratio'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ervandew/supertab'
-Plugin 'thomwiggers/vim-colors-solarized'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'jeetsukumaran/vim-indentwise'
-Plugin 'chrisbra/csv.vim'
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'tpope/vim-sensible'
+NeoBundle 'tpope/vim-scriptease'
+NeoBundle 'tpope/vim-characterize'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-tbone'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-obsession'
+NeoBundle 'tpope/vim-jdaddy'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'idanarye/vim-merginal'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'lepture/vim-jinja'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+NeoBundle 'vim-pandoc/vim-pandoc'
+NeoBundle 'vim-pandoc/vim-pandoc-after'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'ajh17/VimCompletesMe'
+NeoBundle 'SirVer/ultisnips' " New 'snipmate'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'vadv/vim-chef'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'roman/golden-ratio'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'thomwiggers/vim-colors-solarized'
+NeoBundle 'ntpeters/vim-better-whitespace'
+NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'jeetsukumaran/vim-indentwise'
+NeoBundle 'chrisbra/csv.vim'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+
+"
 " Customizations go after this line
 
 set laststatus=2
@@ -204,8 +239,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" GitGutter
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
+highlight clear SignColumn
 
 " Leader shortcuts
 " Open Vimrc
