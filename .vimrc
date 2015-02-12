@@ -16,10 +16,10 @@ call neobundle#begin(expand('/Users/patrick.regan/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+" NeoBundle 'Shougo/neosnippet.vim'
+" NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/neocomplete.vim'
+" NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -64,9 +64,9 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'ajh17/VimCompletesMe'
 NeoBundle 'SirVer/ultisnips' " New 'snipmate'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'ajh17/VimCompletesMe'
 NeoBundle 'vadv/vim-chef'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'mileszs/ack.vim'
@@ -81,9 +81,8 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'jeetsukumaran/vim-indentwise'
 NeoBundle 'chrisbra/csv.vim'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'tmux-plugins/vim-tmux'
 
 " Required:
 call neobundle#end()
@@ -126,12 +125,16 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " My changes
 
+if has("unix")
+  set dictionary=/usr/share/dict/words
+endif
 " Spellcheck Git commit messages
 autocmd FileType gitcommit setlocal spell
 
 " Limit the line length for markdown
 " autocmd FileType pandoc set tw=80
 autocmd FileType pandoc setlocal spell
+autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
 " autocmd FileType pandoc set tabstop=2
 " autocmd FileType pandoc set softtabstop=2
 " autocmd FileType pandoc set shiftwidth=2
@@ -142,6 +145,7 @@ autocmd FileType pandoc setlocal spell
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
 let g:pandoc#formatting#mode = 'hA'
 let g:pandoc#formatting#textwidth = 80
+let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
 
 "let g:solarized_termcolors=256
 colorscheme solarized
@@ -235,9 +239,13 @@ let g:vim_json_syntax_conceal = 0
 
  " Trigger configuration. Do not use <tab> if you use
 " " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" Unite *********************
+nnoremap <C-l> :Unite file_rec/async<CR>
 
 " GitGutter
 "Make GitGutter slightly faster
@@ -306,4 +314,6 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
   nmap <Leader>a> :Tabularize /=><CR>
   vmap <Leader>a> :Tabularize /=><CR>
+  nmap <Leader>a| :Tabularize /|<CR>
+  vmap <Leader>a| :Tabularize /|<CR>
 endif
