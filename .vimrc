@@ -1,102 +1,74 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=/Users/patrick.regan/.vim/bundle/neobundle.vim/
+"Automatically grab vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/patrick.regan/.vim/bundle'))
+" call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'flazz/vim-colorschemes'
-" NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+Plug 'flazz/vim-colorschemes'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-vinegar'
+Plug 'idanarye/vim-merginal'
+Plug 'bling/vim-airline'
+Plug 'lepture/vim-jinja'
+Plug 'sheerun/vim-polyglot'
+Plug 'godlygeek/tabular'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-after'
+Plug 'elzr/vim-json'
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'SirVer/ultisnips' " New 'snipmate'
+Plug 'honza/vim-snippets'
+Plug 'ajh17/VimCompletesMe'
+Plug 'vadv/vim-chef'
+Plug 'sjl/gundo.vim'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'roman/golden-ratio'
+Plug 'airblade/vim-gitgutter'
+Plug 'ervandew/supertab'
+Plug 'thomwiggers/vim-colors-solarized'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'chase/vim-ansible-yaml'
+Plug 'wakatime/vim-wakatime'
+Plug 'jeetsukumaran/vim-indentwise'
+Plug 'chrisbra/csv.vim'
+Plug 'Shougo/vimshell'
+Plug 'tmux-plugins/vim-tmux'
 
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'tpope/vim-sensible'
-NeoBundle 'tpope/vim-scriptease'
-NeoBundle 'tpope/vim-characterize'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-tbone'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'tpope/vim-jdaddy'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'idanarye/vim-merginal'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'lepture/vim-jinja'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'vim-pandoc/vim-pandoc-syntax'
-NeoBundle 'vim-pandoc/vim-pandoc'
-NeoBundle 'vim-pandoc/vim-pandoc-after'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'SirVer/ultisnips' " New 'snipmate'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'ajh17/VimCompletesMe'
-NeoBundle 'vadv/vim-chef'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
-NeoBundle 'roman/golden-ratio'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'thomwiggers/vim-colors-solarized'
-NeoBundle 'ntpeters/vim-better-whitespace'
-NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'jeetsukumaran/vim-indentwise'
-NeoBundle 'chrisbra/csv.vim'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'tmux-plugins/vim-tmux'
-
-" Required:
-call neobundle#end()
+call plug#end()
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
-
-
-"
 " Customizations go after this line
 
 set laststatus=2
