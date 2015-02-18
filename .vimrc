@@ -9,7 +9,6 @@ endif
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.vim/bundle')
 
-
 Plug 'flazz/vim-colorschemes'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-fugitive'
@@ -44,7 +43,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'SirVer/ultisnips' " New 'snipmate'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ajh17/VimCompletesMe'
 Plug 'vadv/vim-chef'
@@ -54,7 +53,6 @@ Plug 'rking/ag.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'roman/golden-ratio'
 Plug 'airblade/vim-gitgutter'
-Plug 'ervandew/supertab'
 Plug 'thomwiggers/vim-colors-solarized'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'chase/vim-ansible-yaml'
@@ -63,18 +61,16 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'chrisbra/csv.vim'
 Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
 call plug#end()
-
-" Required:
-filetype plugin indent on
 
 " Customizations go after this line
 
 set laststatus=2
 set t_Co=256
 
-" airline
+""""""""""""""""""""""""""""""""""""""""""" airline
 "let g:airline_powerline_fonts=1
 let g:airline_symbols = {}
 
@@ -95,15 +91,15 @@ let g:airline_symbols.branch = '⬍'
 let g:airline_symbols.paste = '✂'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" My changes
-
+" Set Dictionary location
 if has("unix")
   set dictionary=/usr/share/dict/words
 endif
+
 " Spellcheck Git commit messages
 autocmd FileType gitcommit setlocal spell
 
-" Limit the line length for markdown
+" " Pandoc file settings
 " autocmd FileType pandoc set tw=80
 autocmd FileType pandoc setlocal spell
 autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
@@ -115,25 +111,21 @@ autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
 
 " Pandoc internal codeblock highlights
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
-let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#formatting#mode = 's'
 let g:pandoc#formatting#textwidth = 80
 let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
 
 "let g:solarized_termcolors=256
 colorscheme solarized
 set incsearch
-set ignorecase
 set smartcase
 set scrolloff=2
 set showcmd
 set relativenumber
 set number
-set undofile
-set backup
 set writebackup
 set ttyfast
 set mouse=a
-" set breakindent
 
 " Set annoying directories
 " Save your backups to a less annoying place than the current directory.
@@ -185,9 +177,10 @@ endif
 
 set tabpagemax=25
 
+set nocompatible
 syntax on                           " syntax highlighing
 filetype on                          " try to detect filetypes
-"filetype plugin indent on
+filetype plugin indent on
 "set autoindent smarttab
 autocmd FileType text setlocal textwidth=78
 
@@ -208,16 +201,6 @@ endif
 
 "Json, show quotes (don't conceal)
 let g:vim_json_syntax_conceal = 0
-
- " Trigger configuration. Do not use <tab> if you use
-" " https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-" Unite *********************
-nnoremap <C-l> :Unite file_rec/async<CR>
 
 " GitGutter
 "Make GitGutter slightly faster
@@ -244,13 +227,19 @@ nmap <leader>j :%!python -m json.tool<CR>
 nmap <leader>n :set number!<CR>:set relativenumber!<CR>
 
 " Toggle Git Gutter
-nmap <leader>g :GitGutterToggle<CR>
+if exists(":GitGutterToggle")
+  nmap <leader>g :GitGutterToggle<CR>
+endif
 
 " CtrlP in Tag mode
-nnoremap <leader>. :CtrlPTag<CR>
+if exists(":CtrlPTag")
+  nnoremap <leader>. :CtrlPTag<CR>
+endif
 
 " Toggle Tagbar
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+if exists(":TagbarToggle")
+  nnoremap <silent> <Leader>b :TagbarToggle<CR>
+endif
 
 " Update Tags
 if has("unix")
@@ -273,7 +262,9 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 nnoremap <leader>= gg=G``
 
 " Table Format (markdown files only)
-nnoremap <silent> <leader>T :TableFormat<CR>
+if exists(":TableFormat")
+  nnoremap <silent> <leader>T :TableFormat<CR>
+endif
 
 " Toggle SemanticHighlighting
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
