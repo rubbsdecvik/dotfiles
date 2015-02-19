@@ -46,12 +46,12 @@ Plug 'tomtom/tlib_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ajh17/VimCompletesMe'
-Plug 'vadv/vim-chef'
+Plug 'dougireton/vim-chef'
 Plug 'sjl/gundo.vim'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'roman/golden-ratio'
+" Plug 'roman/golden-ratio'
 Plug 'airblade/vim-gitgutter'
 Plug 'thomwiggers/vim-colors-solarized'
 Plug 'ntpeters/vim-better-whitespace'
@@ -192,7 +192,9 @@ set backspace=indent,eol,start
 
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
+" Syntastic
 let g:syntastic_javascript_checkers = ['jscs','jshint']
+let g:syntastic_check_on_open = 1
 
 " An attempt to get clipboard support in tmux
 if $TMUX == ''
@@ -209,7 +211,11 @@ highlight clear SignColumn
 
 " Leader shortcuts
 " Open Vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
+  nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
+else
+  nmap <leader>v :tabedit $MYVIMRC<CR>
+endif
 
 " Toggle paste mode
 set pastetoggle=<leader>p
