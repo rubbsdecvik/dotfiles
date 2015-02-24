@@ -53,7 +53,6 @@ Plug 'rking/ag.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 " Plug 'roman/golden-ratio'
 Plug 'airblade/vim-gitgutter'
-Plug 'thomwiggers/vim-colors-solarized'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'chase/vim-ansible-yaml'
 Plug 'wakatime/vim-wakatime'
@@ -62,7 +61,6 @@ Plug 'chrisbra/csv.vim'
 Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
-
 call plug#end()
 
 " Customizations go after this line
@@ -116,7 +114,7 @@ let g:pandoc#formatting#textwidth = 80
 let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
 
 "let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme gruvbox
 set incsearch
 set smartcase
 set scrolloff=2
