@@ -9,7 +9,7 @@ endif
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.vim/bundle')
 
-Plug 'flazz/vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -73,19 +73,19 @@ set t_Co=256
 let g:airline_symbols = {}
 
 " Airline with Unicode (more portable)
-"let g:airline_left_sep = '»'
+" let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
+" let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.branch = '➲'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.branch = '➲'
 let g:airline_symbols.branch = '⬍'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
 let g:airline_symbols.paste = '✂'
 let g:airline_symbols.whitespace = 'Ξ'
 
@@ -98,14 +98,9 @@ endif
 autocmd FileType gitcommit setlocal spell
 
 " " Pandoc file settings
-" autocmd FileType pandoc set tw=80
+autocmd FileType pandoc set tw=80
 autocmd FileType pandoc setlocal spell
 autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
-" autocmd FileType pandoc set tabstop=2
-" autocmd FileType pandoc set softtabstop=2
-" autocmd FileType pandoc set shiftwidth=2
-" autocmd FileType pandoc set expandtab
-" autocmd FileType pandoc set conceallevel=2
 
 " Pandoc internal codeblock highlights
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
