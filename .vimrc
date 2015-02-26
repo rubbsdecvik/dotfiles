@@ -45,7 +45,21 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ajh17/VimCompletesMe'
+
+" Because YouCompleteMe is a giant beast that needs to be killed
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" TODO: Find a way to replace YCM with something like VCM
+
 Plug 'dougireton/vim-chef'
 Plug 'sjl/gundo.vim'
 Plug 'mileszs/ack.vim'
