@@ -10,7 +10,6 @@ endif
 call plug#begin('~/.vim/bundle')
 
 Plug 'morhetz/gruvbox'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-git'
@@ -29,7 +28,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
-Plug 'idanarye/vim-merginal'
 Plug 'bling/vim-airline'
 Plug 'lepture/vim-jinja'
 Plug 'sheerun/vim-polyglot'
@@ -45,7 +43,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'dougireton/vim-chef'
 Plug 'sjl/gundo.vim'
@@ -55,108 +52,19 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'chase/vim-ansible-yaml'
-Plug 'wakatime/vim-wakatime'
-Plug 'jeetsukumaran/vim-indentwise'
 Plug 'chrisbra/csv.vim'
-Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " Customizations go after this line
 
+"""""""""""""""""""""""""""""""""""""""""" General
 set laststatus=2
 set t_Co=256
-
-""""""""""""""""""""""""""""""""""""""""""" airline
-"let g:airline_powerline_fonts=1
-let g:airline_symbols = {}
-
-" Airline with Unicode (more portable)
-" let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.branch = '➲'
-let g:airline_symbols.branch = '⬍'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-let g:airline_symbols.paste = '✂'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" Set Dictionary location
-if has("unix")
-  set dictionary=/usr/share/dict/words
-endif
-
-
-" Neocomplete
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" Neosnippet
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" Spellcheck Git commit messages
-autocmd FileType gitcommit setlocal spell
-
-" " Pandoc file settings
-autocmd FileType pandoc set tw=80
-autocmd FileType pandoc setlocal spell
-autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
-
-" Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
-let g:pandoc#formatting#mode = 's'
-let g:pandoc#formatting#textwidth = 80
-let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
-
-"let g:solarized_termcolors=256
 colorscheme gruvbox
+set background=dark
 set incsearch
 set smartcase
 set scrolloff=2
@@ -167,6 +75,27 @@ set writebackup
 set ttyfast
 set mouse=a
 
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+set nocompatible
+filetype on                          " try to detect filetypes
+filetype plugin indent on
+"set autoindent smarttab
+autocmd FileType text setlocal textwidth=78
+
+" set foldmethod=indent
+" set foldlevel=99
+
+" Set Dictionary location
+if has("unix")
+  set dictionary=/usr/share/dict/words
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""" internal tweaks
 " Set annoying directories
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
@@ -209,47 +138,101 @@ if exists("+undofile")
 endif
 
 
-set background=dark
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+"""""""""""""""""""""""""""""""""""""""""" airline
+"let g:airline_powerline_fonts=1
+let g:airline_symbols = {}
+
+" Airline with Unicode (more portable)
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⬍'
+let g:airline_symbols.paste = '✂'
+let g:airline_symbols.whitespace = 'Ξ'
+
+""""""""""""""""""""""""""""""""""""""""""" Neocomplete
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-set tabpagemax=25
+""""""""""""""""""""""""""""""""""""""""""" Neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-set nocompatible
-syntax on                           " syntax highlighing
-filetype on                          " try to detect filetypes
-filetype plugin indent on
-"set autoindent smarttab
-autocmd FileType text setlocal textwidth=78
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
 
-set foldmethod=indent
-set foldlevel=99
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+""""""""""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages
+autocmd FileType gitcommit setlocal spell
+
+""""""""""""""""""""""""""""""""""""""""""" Pandoc file settings
+autocmd FileType pandoc set tw=78
+autocmd FileType pandoc setlocal spell
+autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
+
+" Pandoc internal codeblock highlights
+let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
+let g:pandoc#formatting#mode = 's'
+let g:pandoc#formatting#textwidth = 80
+let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
 
 au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 set backspace=indent,eol,start
 
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
-" Syntastic
+""""""""""""""""""""""""""""""""""""""""""" Syntastic
 let g:syntastic_javascript_checkers = ['jscs','jshint']
 let g:syntastic_check_on_open = 1
 
 " An attempt to get clipboard support in tmux
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
+" if $TMUX == ''
+"     set clipboard+=unnamed
+" endif
 
-"Json, show quotes (don't conceal)
+"""""""""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal)
 let g:vim_json_syntax_conceal = 0
 
-" GitGutter
+""""""""""""""""""""""""""""""""""""""""""" GitGutter
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
-highlight clear SignColumn
+" highlight clear SignColumn
 
-" Leader shortcuts
+""""""""""""""""""""""""""""""""""""""""""" Leader shortcuts
 " Open Vimrc
 if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
@@ -269,9 +252,6 @@ nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
 " Json Tool Useage
 nmap <leader>j :%!python -m json.tool<CR>
 
-" Turn off and on numbers
-nmap <leader>n :set number!<CR>:set relativenumber!<CR>
-
 " Toggle Git Gutter
 if exists(":GitGutterToggle")
   nmap <leader>g :GitGutterToggle<CR>
@@ -280,11 +260,6 @@ endif
 " CtrlP in Tag mode
 if exists(":CtrlPTag")
   nnoremap <leader>. :CtrlPTag<CR>
-endif
-
-" Toggle Tagbar
-if exists(":TagbarToggle")
-  nnoremap <silent> <Leader>b :TagbarToggle<CR>
 endif
 
 " Update Tags
@@ -306,11 +281,6 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 " prettify
 nnoremap <leader>= gg=G``
-
-" Table Format (markdown files only)
-if exists(":TableFormat")
-  nnoremap <silent> <leader>T :TableFormat<CR>
-endif
 
 " Toggle SemanticHighlighting
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
