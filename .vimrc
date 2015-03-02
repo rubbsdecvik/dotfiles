@@ -268,6 +268,7 @@ if has("unix")
   if s:uname == "Darwin\n"
     " Do Mac stuff here
     nnoremap <silent> <Leader>t :!/usr/local/bin/ctags -R -f ./.git/tags .<CR>
+    au BufEnter /private/tmp/crontab.* setl backupcopy=yes
   endif
 else
   nnoremap <silent> <Leader>t :!ctags -R -f ./.git/tags .<CR>
