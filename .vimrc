@@ -40,10 +40,11 @@ Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 Plug 'tomtom/tlib_vim'
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'Shougo/neosnippet.vim'
+Plug 'ajh17/VimCompletesMe'
 Plug 'dougireton/vim-chef'
 Plug 'sjl/gundo.vim'
 Plug 'mileszs/ack.vim'
@@ -151,50 +152,50 @@ let g:airline_symbols.paste = '✂'
 let g:airline_symbols.whitespace = 'Ξ'
 
 """"""""""""""""""""""""""""""""""""""""""" Neocomplete
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" " Use neocomplete.
+" let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Plugin key-mappings.
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
+" " <TAB>: completion.
+" " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
+" " Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+" " Enable heavy omni completion.
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
 
-""""""""""""""""""""""""""""""""""""""""""" Neosnippet
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" """"""""""""""""""""""""""""""""""""""""""" Neosnippet
+" " Plugin key-mappings.
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+" " SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" " For snippet_complete marker.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages
 autocmd FileType gitcommit setlocal spell
@@ -208,7 +209,7 @@ autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
 let g:pandoc#formatting#mode = 's'
 let g:pandoc#formatting#textwidth = 80
-let g:pandoc#after#modules#enabled = ["vimcompletesme", "ultisnips"]
+let g:pandoc#after#modules#enabled = ["vimcompletesme"]
 
 au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 set backspace=indent,eol,start
