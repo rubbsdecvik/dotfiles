@@ -93,7 +93,7 @@ if has("unix")
 endif
 
 " insert newline without entering insert mode
-nmap <silent> <S-Enter> O<esc><CR>
+nmap <silent> <leader>o o<esc>
 
 """""""""""""""""""""""""""""""""""""""""" internal tweaks
 " Set annoying directories
