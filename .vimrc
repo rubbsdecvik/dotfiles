@@ -92,6 +92,8 @@ if has("unix")
   set dictionary=/usr/share/dict/words
 endif
 
+" insert newline without entering insert mode
+nmap <silent> <S-Enter> O<esc><CR>
 
 """""""""""""""""""""""""""""""""""""""""" internal tweaks
 " Set annoying directories
