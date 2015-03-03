@@ -32,9 +32,11 @@ Plug 'bling/vim-airline'
 Plug 'lepture/vim-jinja'
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-after'
+if v:version >= 704 " because old vims hate this
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-after'
+endif
 Plug 'elzr/vim-json'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
@@ -66,11 +68,14 @@ set incsearch
 set smartcase
 set scrolloff=2
 set showcmd
-set relativenumber
 set number
 set writebackup
 set ttyfast
 set mouse=a
+" Because ancient vims dont' have this
+if exists('+relativenumber')
+  set relativenumber
+endif
 
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -80,11 +85,7 @@ endif
 set nocompatible
 filetype on                          " try to detect filetypes
 filetype plugin indent on
-"set autoindent smarttab
 autocmd FileType text setlocal textwidth=78
-
-" set foldmethod=indent
-" set foldlevel=99
 
 " Set Dictionary location
 if has("unix")
