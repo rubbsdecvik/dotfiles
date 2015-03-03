@@ -76,6 +76,9 @@ set mouse=a
 if exists('+relativenumber')
   set relativenumber
 endif
+if exists('+breakindent')
+  set breakindent
+endif
 
 if &t_Co > 2 || has("gui_running")
   syntax on
