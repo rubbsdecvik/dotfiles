@@ -238,7 +238,7 @@ nnoremap <silent> <leader>w :ToggleWhitespace<CR>
 nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 " prettify
-nnoremap <leader>= gg=G``
+nnoremap <leader>= gggqG``
 
 " Toggle SemanticHighlighting
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
