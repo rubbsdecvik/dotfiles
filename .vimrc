@@ -55,7 +55,6 @@ Plug 'chrisbra/csv.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 Plug 'wakatime/vim-wakatime'
-Plug 'solars/github-vim'
 call plug#end()
 
 " Customizations go after this line
