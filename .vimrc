@@ -210,25 +210,21 @@ nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
 nmap <leader>j :%!python -m json.tool<CR>
 
 " Toggle Git Gutter
-if exists(":GitGutterToggle")
-  nmap <leader>g :GitGutterToggle<CR>
-endif
+nmap <leader>g :GitGutterToggle<CR>
 
 " CtrlP in Tag mode
-if exists(":CtrlPTag")
-  nnoremap <leader>. :CtrlPTag<CR>
-endif
+nnoremap <leader>. :CtrlPTag<CR>
 
 " Update Tags
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
     " Do Mac stuff here
-    nnoremap <silent> <Leader>t :!/usr/local/bin/ctags -R -f ./.git/tags .<CR>
+    nnoremap <silent> <Leader>t :Dispatch! /usr/local/bin/ctags -R -f ./.git/tags .<CR>
     au BufEnter /private/tmp/crontab.* setl backupcopy=yes
   endif
 else
-  nnoremap <silent> <Leader>t :!ctags -R -f ./.git/tags .<CR>
+  nnoremap <silent> <Leader>t :Dispatch! ctags -R -f ./.git/tags .<CR>
 endif
 
 " Whitespace stuff
@@ -244,13 +240,11 @@ nnoremap <leader>= gggqG``
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
 
 " Tab align along = or :
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-  nmap <Leader>a> :Tabularize /=><CR>
-  vmap <Leader>a> :Tabularize /=><CR>
-  nmap <Leader>a| :Tabularize /|<CR>
-  vmap <Leader>a| :Tabularize /|<CR>
-endif
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a> :Tabularize /=><CR>
+vmap <Leader>a> :Tabularize /=><CR>
+nmap <Leader>a| :Tabularize /|<CR>
+vmap <Leader>a| :Tabularize /|<CR>
