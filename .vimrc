@@ -240,11 +240,11 @@ nnoremap <leader>= gggqG``
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
 
 " Tab align along = or :
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-nmap <Leader>a> :Tabularize /=><CR>
-vmap <Leader>a> :Tabularize /=><CR>
-nmap <Leader>a| :Tabularize /|<CR>
-vmap <Leader>a| :Tabularize /|<CR>
+nmap <silent> <Leader>a= :Tabularize /=<CR>
+vmap <silent> <Leader>a= :Tabularize /=<CR>
+nmap <silent> <Leader>a: :Tabularize /:\zs<CR>
+vmap <silent> <Leader>a: :Tabularize /:\zs<CR>
+nmap <silent> <Leader>a> :Tabularize /=><CR>
+vmap <silent> <Leader>a> :Tabularize /=><CR>
+nmap <silent> <Leader>a| :Tabularize /|<CR>
+vmap <silent> <Leader>a| :Tabularize /|<CR>
