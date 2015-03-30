@@ -133,7 +133,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ $(hash brew 2>/dev/null) ]
+if  hash brew 2>/dev/null; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
