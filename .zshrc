@@ -96,6 +96,11 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/patrick.regan/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+ctrlp() {
+  </dev/tty nvim -c CtrlP
+}
+zle -N ctrlp
+
+bindkey "^p" ctrlp
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

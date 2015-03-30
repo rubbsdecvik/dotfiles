@@ -43,6 +43,8 @@ Plug 'elzr/vim-json'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
+" Ctrl-P for everything
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'tomtom/tlib_vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'dougireton/vim-chef'
