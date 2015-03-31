@@ -58,7 +58,7 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'chrisbra/csv.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " Customizations go after this line
