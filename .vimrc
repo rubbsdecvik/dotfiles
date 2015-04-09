@@ -60,9 +60,10 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
 " Plug 'wakatime/vim-wakatime'
-if has("ruby")
+if has("ruby") && v:version >= 700
   Plug 'junegunn/vim-github-dashboard'
   let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
+  nmap <leader>c :GHA Pardot/chef<cr>
 endif
 call plug#end()
 
