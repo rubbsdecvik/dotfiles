@@ -7,10 +7,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
+" Plugins!
 " Required:
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.vim/bundle')
-
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -58,7 +58,12 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'chrisbra/csv.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
+Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
 " Plug 'wakatime/vim-wakatime'
+if has("ruby")
+  Plug 'junegunn/vim-github-dashboard'
+  let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
+endif
 call plug#end()
 
 " Customizations go after this line
