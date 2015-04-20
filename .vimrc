@@ -65,6 +65,7 @@ if has("ruby") && v:version >= 700
   let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
   nmap <leader>c :GHA Pardot/chef<cr>
 endif
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 " Customizations go after this line
