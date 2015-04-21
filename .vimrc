@@ -166,9 +166,14 @@ endif
 
 " Super helpful in whitespace significant langs, like YAML or Python
 Plug 'nathanaelkane/vim-indent-guides'
+
+" Auto Tag management
+Plug 'ludovicchabant/vim-gutentags'
+
+" End of Plugin Manager
 call plug#end()
 
-" Customizations go after this line
+" Non-Plugin Customizations go after this line
 
 """""""""""""""""""""""""""""""""""""""""" General
 set laststatus=2
