@@ -45,3 +45,5 @@ Session.vim
 # Tags #
 ########
 tags
+tags.temp
+tags.lock
