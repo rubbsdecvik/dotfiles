@@ -42,7 +42,7 @@ Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkd
 " Simple, syntax aware commenting of lines
 Plug 'tpope/vim-commentary'
 
-" Some Tmux integrations
+" Some Tmux integrations for interacting *with* tmux
 Plug 'tpope/vim-tbone'
 
 " Auto-detect and setup expandtab, tabstop, and shiftwidth
@@ -145,7 +145,8 @@ Plug 'chase/vim-ansible-yaml'
 " Because working with CSV within vim is actually fun and useful
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-" More Tmux support. Need to investigate if it's necessary with Tbone
+" Syntax and other sugar for editing .tmux.conf. NOTE: Not redundant with
+" tbone
 Plug 'tmux-plugins/vim-tmux'
 
 " Not exactly semantic, but gives a different highlight. good for super dense
