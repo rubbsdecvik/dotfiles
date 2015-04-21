@@ -170,6 +170,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Auto Tag management
 Plug 'ludovicchabant/vim-gutentags'
 
+" True Session Management, uses Obsession
+Plug 'dhruvasagar/vim-prosession'
+
+" Org-mode for Vim
+Plug 'dhruvasagar/vim-dotoo'
+
 " End of Plugin Manager
 call plug#end()
 
