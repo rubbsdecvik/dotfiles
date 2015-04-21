@@ -1,3 +1,5 @@
+" Without this, utf chars within this file could screw things up. Though any
+" sane OS should figure this shit out by now.
 scriptencoding utf-8
 
 "Automatically grab vim-plug
@@ -11,59 +13,157 @@ endif
 " Required:
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.vim/bundle')
+
+" My current theme of choice
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-abolish'
+
+" ########################################################
+" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection
+
+" Sets up a lot of custom '.' repeats
 Plug 'tpope/vim-repeat'
+
+" Git integration
+Plug 'tpope/vim-fugitive' " Actual git commands
+Plug 'tpope/vim-git' " Syntax for git related things
+
+" Add, remove, and change surrounding pairs like (),[], etc.
+Plug 'tpope/vim-surround'
+
+" Quite a few sensable defaults. Some of which are overridden in this file
+Plug 'tpope/vim-sensible'
+
+" 'cheap' character analysis. Helpful with UTF-8 stuff
+Plug 'tpope/vim-characterize'
+
+" Better integration of Unix commands
+Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkdir','Find','Locate','SudoEdit','SudoWrite','Wall','W'] }
+
+" Simple, syntax aware commenting of lines
+Plug 'tpope/vim-commentary'
+
+" Some Tmux integrations
+Plug 'tpope/vim-tbone'
+
+" Auto-detect and setup expandtab, tabstop, and shiftwidth
+Plug 'tpope/vim-sleuth'
+
+" Setup Abbreviations that auto-scale
+Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
+
+" Keep sessions updated
 Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-endwise'
+
+" Good JSON commands
+Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
+
+" Auto-add end in ruby and chef files
+Plug 'tpope/vim-endwise', { 'for': ['ruby','chef','sh','lua'] }
+
+" Super helpful non-intrusive key-pairs for common actions, like next in the
+" quicklist `]q`
 Plug 'tpope/vim-unimpaired'
+
+" Batch off commands to Tmux and/or backround tasks
 Plug 'tpope/vim-dispatch'
+
+" Makes CTRL-A work on datestamps
 Plug 'tpope/vim-speeddating'
+
+" Make the built-in explorer act modal
 Plug 'tpope/vim-vinegar'
+
+" thus ends the tpope collection
+" ########################################################
+
+" A viml library that us used by other plugins
+Plug 'tomtom/tlib_vim'
+
+" A nice status-line that is plugin aware
 Plug 'bling/vim-airline'
+
+" Syntax for Jinja templates
 Plug 'lepture/vim-jinja'
+
+" Syntax highlighting for a lot of 'extras'
 Plug 'sheerun/vim-polyglot'
-Plug 'godlygeek/tabular'
+
+" Align and Justify text based on delimiters
+Plug 'godlygeek/tabular', { 'on': ['Tabularize','AddTabularPattern','AddTabularPipeline'] }
+
+" Pandoc integration, because Markdown is awesome.
+" This requires 7.4+ so fall back to native MD support if it's not present
 if v:version >= 704 " because old vims hate this
   Plug 'vim-pandoc/vim-pandoc-syntax'
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-after'
 endif
-Plug 'elzr/vim-json'
+
+" Better JSON syntax support
+Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
+
+" A good in-line linter
 Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
+
+" Fuzzy Finding
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
-" Ctrl-P for everything
+
+
+" Ctrl-P for everything, including non-vim stuff
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'tomtom/tlib_vim'
+
+" More native-like autocomplete than neocomplete
 Plug 'ajh17/VimCompletesMe'
-Plug 'dougireton/vim-chef'
+
+" Chef sugar
+Plug 'dougireton/vim-chef', { 'for': 'chef' }
+
+" Visualize the undo tree
 Plug 'sjl/gundo.vim'
-Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
+
+" Kept on because it doesn't clobber vimgrep and isn't super heavy, also,
+" incase ag isn't installed
+Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow']}
+
+" Silver Searcher support for Vim. Fairly lightweight.
+Plug 'rking/ag.vim', { 'on': ['Ag', 'AgAdd', 'AgFromSearch', 'LAg', 'LAgAdd', 'AgFile', 'AgHelp', 'LAgHelp', 'AwkBuffer', 'LAgBuffer']}
+
+" Makes pasting in do auto :setpaste and :setnopaste when needed
 Plug 'ConradIrwin/vim-bracketed-paste'
+
+" Show git changes
 Plug 'airblade/vim-gitgutter'
+
+" Highlight, and also trim whitespace. Pretty lightweight
 Plug 'ntpeters/vim-better-whitespace'
+
+" Ansible specific YAML highlighting not lazing loading so it can recognize
+" when it's in Ansible stuff
 Plug 'chase/vim-ansible-yaml'
-Plug 'chrisbra/csv.vim'
+
+" Because working with CSV within vim is actually fun and useful
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+
+" More Tmux support. Need to investigate if it's necessary with Tbone
 Plug 'tmux-plugins/vim-tmux'
+
+" Not exactly semantic, but gives a different highlight. good for super dense
+" works.
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
+
+" Helpful for Prose stuff.
 Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
+
+" Gives basic Github integration into Vim. Not super awesome, but can be lazy
+" loaded.
 if has("ruby") && v:version >= 700
-  Plug 'junegunn/vim-github-dashboard'
+  Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity', 'GHD', 'GHA'] }
   let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
   nmap <leader>c :GHA Pardot/chef<cr>
 endif
+
+" Super helpful in whitespace significant langs, like YAML or Python
 Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
@@ -82,6 +182,8 @@ set number
 set writebackup
 set ttyfast
 set mouse=a
+set foldmethod=syntax
+set foldlevel=2
 " Because ancient vims dont' have this
 if exists('+relativenumber')
   set relativenumber
