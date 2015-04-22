@@ -279,15 +279,16 @@ autocmd FileType pandoc setlocal spell
 autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
 
 " Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh"]
-let g:pandoc#formatting#mode = 's'
-let g:pandoc#formatting#textwidth = 80
-let g:pandoc#after#modules#enabled = ["vimcompletesme"]
+let g:pandoc#syntax#codeblocks#embeds#langs  = ["json=javascript","ruby","python","bash=sh"]
+let g:pandoc#formatting#mode                 = 's'
+let g:pandoc#formatting#textwidth            = 80
+let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
+let g:pandoc#folding#level                   = 2
 
 au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 set backspace=indent,eol,start
 
-autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
+autocmd FileType ruby,eruby set filetype=ruby.eruby.chef tabstop=2 shiftwidth=2 expandtab
 
 """"""""""""""""""""""""""""""""""""""""""" Syntastic
 let g:syntastic_javascript_checkers = ['jscs','jshint']
