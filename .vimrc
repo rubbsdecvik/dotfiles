@@ -2,100 +2,101 @@
 " sane OS should figure this shit out by now.
 scriptencoding utf-8
 
-"Automatically grab vim-plug
+" Automatically grab vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
+" }}}1
 
-" Plugins!
+" Plugins! {{{1
 " Required:
-" call plug#begin('~/.vim/plugged')
 call plug#begin('~/.vim/bundle')
 
-" My current theme of choice
+" My current theme of choice {{{2
 Plug 'morhetz/gruvbox'
 
 " ########################################################
-" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection
+" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2
 
-" Sets up a lot of custom '.' repeats
+" Sets up a lot of custom '.' repeats {{{3
 Plug 'tpope/vim-repeat'
 
-" Git integration
+" Git integration {{{3
 Plug 'tpope/vim-fugitive' " Actual git commands
 Plug 'tpope/vim-git' " Syntax for git related things
 
-" Add, remove, and change surrounding pairs like (),[], etc.
+" Add, remove, and change surrounding pairs like (),[], etc. {{{3
 Plug 'tpope/vim-surround'
 
 " Quite a few sensable defaults. Some of which are overridden in this file
+" {{{3
 Plug 'tpope/vim-sensible'
 
-" 'cheap' character analysis. Helpful with UTF-8 stuff
+" 'cheap' character analysis. Helpful with UTF-8 stuff {{{3
 Plug 'tpope/vim-characterize'
 
-" Better integration of Unix commands
+" Better integration of Unix commands {{{3
 Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkdir','Find','Locate','SudoEdit','SudoWrite','Wall','W'] }
 
-" Simple, syntax aware commenting of lines
+" Simple, syntax aware commenting of lines {{{3
 Plug 'tpope/vim-commentary'
 
-" Some Tmux integrations for interacting *with* tmux
+" Some Tmux integrations for interacting *with* tmux {{{3
 Plug 'tpope/vim-tbone'
 
-" Auto-detect and setup expandtab, tabstop, and shiftwidth
+" Auto-detect and setup expandtab, tabstop, and shiftwidth {{{3
 Plug 'tpope/vim-sleuth'
 
-" Setup Abbreviations that auto-scale
+" Setup Abbreviations that auto-scale {{{3
 Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
 
-" Keep sessions updated
+" Keep sessions updated {{{3
 Plug 'tpope/vim-obsession'
 
-" Good JSON commands
+" Good JSON commands {{{3
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
 
-" Auto-add end in ruby and chef files
+" Auto-add end in ruby and chef files {{{3
 Plug 'tpope/vim-endwise', { 'for': ['ruby','chef','sh','lua'] }
 
 " Super helpful non-intrusive key-pairs for common actions, like next in the
-" quicklist `]q`
+" quicklist `]q` {{{3
 Plug 'tpope/vim-unimpaired'
 
-" Batch off commands to Tmux and/or backround tasks
+" Batch off commands to Tmux and/or backround tasks {{{3
 Plug 'tpope/vim-dispatch'
 
-" Makes CTRL-A work on datestamps
+" Makes CTRL-A work on datestamps {{{3
 Plug 'tpope/vim-speeddating'
 
-" Make the built-in explorer act modal
+" Make the built-in explorer act modal {{{3
 Plug 'tpope/vim-vinegar'
 
 " thus ends the tpope collection
-" ########################################################
+" ######################################################## }}}2
 
-" A viml library that us used by other plugins
+" A viml library that us used by other plugins {{{2
 Plug 'tomtom/tlib_vim'
 
-" A nice status-line that is plugin aware
+" A nice status-line that is plugin aware {{{2
 Plug 'bling/vim-airline'
 
-" Syntax for Jinja templates
+" Syntax for Jinja templates {{{2
 Plug 'lepture/vim-jinja'
 
-" Syntax highlighting for a lot of 'extras'
+" Syntax highlighting for a lot of 'extras' {{{2
 Plug 'sheerun/vim-polyglot'
 
-" Align and Justify text based on delimiters
+" Align and Justify text based on delimiters {{{2
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ge <Plug>(EasyAlign)
 
-" Pandoc integration, because Markdown is awesome.
+" Pandoc integration, because Markdown is awesome. {{{2
 " This requires 7.4+ so fall back to native MD support if it's not present
 if v:version >= 704 " because old vims hate this
   Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -103,86 +104,86 @@ if v:version >= 704 " because old vims hate this
   Plug 'vim-pandoc/vim-pandoc-after'
 endif
 
-" Better JSON syntax support
+" Better JSON syntax support {{{2
 Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 
-" A good in-line linter
+" A good in-line linter {{{2
 Plug 'scrooloose/syntastic'
 
-" Fuzzy Finding
+" Fuzzy Finding {{{2
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 
-
-" Ctrl-P for everything, including non-vim stuff
+" Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-" More native-like autocomplete than neocomplete
+" More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
 
-" Chef sugar
+" Chef sugar {{{2
 Plug 'dougireton/vim-chef', { 'for': 'chef' }
 
-" Visualize the undo tree
+" Visualize the undo tree {{{2
 Plug 'sjl/gundo.vim'
 
 " Kept on because it doesn't clobber vimgrep and isn't super heavy, also,
-" incase ag isn't installed
+" incase ag isn't installed {{{2
 Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow'] }
 
-" Silver Searcher support for Vim. Fairly lightweight.
+" Silver Searcher support for Vim. Fairly lightweight. {{{2
 Plug 'rking/ag.vim', { 'on': ['Ag', 'AgAdd', 'AgFromSearch', 'LAg', 'LAgAdd', 'AgFile', 'AgHelp', 'LAgHelp', 'AwkBuffer', 'LAgBuffer'] }
 
-" Makes pasting in do auto :setpaste and :setnopaste when needed
+" Makes pasting in do auto :setpaste and :setnopaste when needed {{{2
 Plug 'ConradIrwin/vim-bracketed-paste'
 
-" Show git changes
+" Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
 
-" Highlight, and also trim whitespace. Pretty lightweight
+" Highlight, and also trim whitespace. Pretty lightweight {{{2
 Plug 'ntpeters/vim-better-whitespace'
 
 " Ansible specific YAML highlighting not lazing loading so it can recognize
-" when it's in Ansible stuff
+" when it's in Ansible stuff {{{2
 Plug 'chase/vim-ansible-yaml'
 
-" Because working with CSV within vim is actually fun and useful
+" Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
 " Syntax and other sugar for editing .tmux.conf. NOTE: Not redundant with
-" tbone
+" tbone {{{2
 Plug 'tmux-plugins/vim-tmux'
 
 " Not exactly semantic, but gives a different highlight. good for super dense
-" works.
+" works. {{{2
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
-" Helpful for Prose stuff.
+" Helpful for Prose stuff. {{{2
 Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
 
 " Gives basic Github integration into Vim. Not super awesome, but can be lazy
-" loaded.
+" loaded. {{{2
 if has("ruby") && v:version >= 700
   Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity', 'GHD', 'GHA'] }
   let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
   nmap <leader>c :GHA Pardot/chef<cr>
 endif
 
-" Super helpful in whitespace significant langs, like YAML or Python
+" Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Auto Tag management
+" Auto Tag management {{{2
 Plug 'ludovicchabant/vim-gutentags'
 
-" More text objects
+" More text objects {{{2
 Plug 'wellle/targets.vim'
 
-" End of Plugin Manager
+" End of Plugin Manager {{{2
 call plug#end()
+" }}}1 End of Plugins
 
 " Non-Plugin Customizations go after this line
 
-"""""""""""""""""""""""""""""""""""""""""" General
+"""""""""""""""""""""""""""""""""""""" General {{{1
 set laststatus=2
 set t_Co=256
 colorscheme gruvbox
@@ -222,8 +223,8 @@ endif
 " insert newline without entering insert mode
 nmap <silent> <leader>o o<esc>
 
-"""""""""""""""""""""""""""""""""""""""""" internal tweaks
-" Set annoying directories
+"""""""""""""""""""""""""""""""""""""" internal tweaks {{{1
+" Set annoying directories {{{2
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
@@ -239,7 +240,7 @@ set backup
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
-" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or . {{{2
 if isdirectory($HOME . '/.vim/swap') == 0
   :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
 endif
@@ -248,14 +249,14 @@ set directory+=~/.vim/swap//
 set directory+=~/tmp//
 set directory+=.
 
-" viminfo stores the the state of your previous editing session
+" viminfo stores the the state of your previous editing session {{{2
 set viminfo+=n~/.vim/viminfo
 
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
-  " This is only present in 7.3+
+  " This is only present in 7.3+ {{{2
   if isdirectory($HOME . '/.vim/undo') == 0
     :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
   endif
@@ -264,8 +265,12 @@ if exists("+undofile")
   set undofile
 endif
 
+au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+set backspace=indent,eol,start
 
-"""""""""""""""""""""""""""""""""""""""""" airline
+autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
+
+"""""""""""""""""""""""""""""""""""""" airline {{{1
 "let g:airline_powerline_fonts=1
 let g:airline_symbols = {}
 
@@ -277,10 +282,10 @@ let g:airline_symbols.branch = '⬍'
 let g:airline_symbols.paste = '✂'
 let g:airline_symbols.whitespace = 'Ξ'
 
-""""""""""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages
+""""""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages {{{1
 autocmd FileType gitcommit setlocal spell
 
-""""""""""""""""""""""""""""""""""""""""""" Pandoc file settings
+""""""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
 autocmd FileType pandoc set tw=78
 autocmd FileType pandoc setlocal spell
 autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
@@ -292,29 +297,28 @@ let g:pandoc#formatting#textwidth            = 80
 let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
 let g:pandoc#folding#level                   = 2
 
-au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-set backspace=indent,eol,start
 
-autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
-
-""""""""""""""""""""""""""""""""""""""""""" Syntastic
+""""""""""""""""""""""""""""""""""""""" Syntastic {{{1
 let g:syntastic_javascript_checkers = ['jscs','jshint']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
 
 " An attempt to get clipboard support in tmux
 " if $TMUX == ''
 "     set clipboard+=unnamed
 " endif
 
-"""""""""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal)
+"""""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
 
-""""""""""""""""""""""""""""""""""""""""""" GitGutter
+""""""""""""""""""""""""""""""""""""""" GitGutter {{{1
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
 " highlight clear SignColumn
 
-""""""""""""""""""""""""""""""""""""""""""" Leader shortcuts
+""""""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc
 if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
@@ -364,3 +368,4 @@ nnoremap <leader>= gggqG``
 " Toggle SemanticHighlighting
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
 
+" vim: foldmethod=marker foldlevel=1
