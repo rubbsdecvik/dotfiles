@@ -207,6 +207,7 @@ set ttyfast
 set mouse=a
 set foldmethod=syntax
 set foldlevel=2
+set modeline
 " Because ancient vims dont' have this
 if exists('+relativenumber')
   set relativenumber
@@ -228,9 +229,6 @@ autocmd FileType text setlocal textwidth=78
 if has("unix")
   set dictionary=/usr/share/dict/words
 endif
-
-" insert newline without entering insert mode
-nmap <silent> <leader>o o<esc>
 
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
 " Set annoying directories {{{2
