@@ -18,7 +18,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'morhetz/gruvbox'
 
 " ########################################################
-" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2
+" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{
 
 " Sets up a lot of custom '.' repeats {{{3
 Plug 'tpope/vim-repeat'
@@ -41,7 +41,7 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkdir','Find','Locate','SudoEdit','SudoWrite','Wall','W'] }
 
 " Simple, syntax aware commenting of lines {{{3
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 
 " Some Tmux integrations for interacting *with* tmux {{{3
 Plug 'tpope/vim-tbone'
@@ -90,7 +90,7 @@ Plug 'lepture/vim-jinja'
 Plug 'sheerun/vim-polyglot'
 
 " Align and Justify text based on delimiters {{{2
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)','EasyAlign'] }
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -117,6 +117,18 @@ Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
+" Look at Registers right befor you use them {{{2
+Plug 'junegunn/vim-peekaboo'
+function! s:Peekaboo()
+    call peekaboo#peek(1, 'ctrl-r',  0)
+endfunction
+
+let g:Cmd2_cmd_mappings = {
+    \ 'Peekaboo': {'command': function('s:Peekaboo'), 'type': 'function'},
+    \ }
+
+cmap <C-R> <Plug>(Cmd2)Peekaboo
+
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
 
@@ -124,7 +136,7 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'dougireton/vim-chef', { 'for': 'chef' }
 
 " Visualize the undo tree {{{2
-Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim', { 'on': ['GundoToggle','GundoHide','GundoRenderGraph','GundoShow'] }
 
 " Kept on because it doesn't clobber vimgrep and isn't super heavy, also,
 " incase ag isn't installed {{{2
@@ -149,19 +161,16 @@ Plug 'chase/vim-ansible-yaml'
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-" Syntax and other sugar for editing .tmux.conf. NOTE: Not redundant with
-" tbone {{{2
+" Syntax & sugar for editing .tmux.conf. NOTE: Not redundant with tbone {{{2
 Plug 'tmux-plugins/vim-tmux'
 
-" Not exactly semantic, but gives a different highlight. good for super dense
-" works. {{{2
+" Not really semantic, but helpful coloring for dense docs {{{2
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
 " Helpful for Prose stuff. {{{2
 Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
 
-" Gives basic Github integration into Vim. Not super awesome, but can be lazy
-" loaded. {{{2
+" Gives basic Github integration into Vim. {{{2
 if has("ruby") && v:version >= 700
   Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity', 'GHD', 'GHA'] }
   let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
@@ -302,7 +311,7 @@ let g:pandoc#folding#level                   = 2
 let g:syntastic_javascript_checkers = ['jscs','jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 
 " An attempt to get clipboard support in tmux
@@ -318,7 +327,7 @@ let g:vim_json_syntax_conceal = 0
 let g:gitgutter_realtime=1500
 " highlight clear SignColumn
 
-""""""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
+" """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc
 if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
