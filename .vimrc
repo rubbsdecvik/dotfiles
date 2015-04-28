@@ -326,32 +326,32 @@ let g:gitgutter_realtime=1500
 " highlight clear SignColumn
 
 " """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
-" Open Vimrc
+" Open Vimrc {{{2
 if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
 else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
-" Toggle paste mode
+" Toggle paste mode {{{2
 set pastetoggle=<leader>p
 
-" Open ScratchPad
+" Open ScratchPad {{{2
 nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
-" Open EmailScratchPad
+" Open EmailScratchPad {{{2
 nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
 
-" Json Tool Useage
+" Json Tool Useage {{{2
 nmap <leader>j :%!python -m json.tool<CR>
 
-" Toggle Git Gutter
+" Toggle Git Gutter {{{2
 nmap <leader>g :GitGutterToggle<CR>
 
-" CtrlP in Tag mode
+" CtrlP in Tag mode {{{2
 nnoremap <leader>. :CtrlPTag<CR>
 
-" Update Tags
+" Update Tags {{{2
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
@@ -363,16 +363,16 @@ else
   nnoremap <silent> <Leader>t :Dispatch! ctags -R -f ./.git/tags .<CR>
 endif
 
-" Whitespace stuff
+" Whitespace stuff {{{2
 " Whitespace Highlight Toggle
 nnoremap <silent> <leader>w :ToggleWhitespace<CR>
 " And Strip it
 nnoremap <silent> <leader>W :StripWhitespace<CR>
 
-" prettify
+" prettify {{{2
 nnoremap <leader>= gggqG``
 
-" Toggle SemanticHighlighting
+" Toggle SemanticHighlighting {{{2
 nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
 
 " vim: foldmethod=marker foldlevel=1
