@@ -197,7 +197,7 @@ set laststatus=2
 set t_Co=256
 colorscheme gruvbox
 set background=dark
-set incsearch
+set incsearch " start moving while searching
 set smartcase
 set scrolloff=2
 set showcmd
@@ -208,6 +208,8 @@ set mouse=a
 set foldmethod=syntax
 set foldlevel=2
 set modeline
+set splitbelow
+set splitright
 " Because ancient vims dont' have this
 if exists('+relativenumber')
   set relativenumber
@@ -309,13 +311,9 @@ let g:pandoc#folding#level                   = 2
 let g:syntastic_javascript_checkers = ['jscs','jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
+" The following is only helpful if your codebase doesn't suck
 " let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
-
-" An attempt to get clipboard support in tmux
-" if $TMUX == ''
-"     set clipboard+=unnamed
-" endif
 
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
