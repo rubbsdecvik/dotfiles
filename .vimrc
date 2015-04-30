@@ -117,17 +117,6 @@ Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-" Look at Registers right befor you use them {{{2
-Plug 'junegunn/vim-peekaboo'
-function! s:Peekaboo()
-    call peekaboo#peek(1, 'ctrl-r',  0)
-endfunction
-
-let g:Cmd2_cmd_mappings = {
-    \ 'Peekaboo': {'command': function('s:Peekaboo'), 'type': 'function'},
-    \ }
-
-cmap <C-R> <Plug>(Cmd2)Peekaboo
 
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
