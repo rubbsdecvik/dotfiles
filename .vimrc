@@ -14,11 +14,11 @@ endif
 " Required:
 call plug#begin('~/.vim/bundle')
 
-" My current theme of choice {{{2
+" Gruvbox My current theme of choice {{{2
 Plug 'morhetz/gruvbox'
 
 " ########################################################
-" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{
+" Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2
 
 " Sets up a lot of custom '.' repeats {{{3
 Plug 'tpope/vim-repeat'
