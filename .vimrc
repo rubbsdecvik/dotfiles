@@ -30,8 +30,7 @@ Plug 'tpope/vim-git' " Syntax for git related things
 " Add, remove, and change surrounding pairs like (),[], etc. {{{3
 Plug 'tpope/vim-surround'
 
-" Quite a few sensable defaults. Some of which are overridden in this file
-" {{{3
+" Quite a few sensable defaults. {{{3
 Plug 'tpope/vim-sensible'
 
 " 'cheap' character analysis. Helpful with UTF-8 stuff {{{3
