@@ -40,7 +40,7 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkdir','Find','Locate','SudoEdit','SudoWrite','Wall','W'] }
 
 " Simple, syntax aware commenting of lines {{{3
-Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-commentary'
 
 " Some Tmux integrations for interacting *with* tmux {{{3
 Plug 'tpope/vim-tbone'
@@ -277,6 +277,9 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⬍'
 let g:airline_symbols.paste = '✂'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" Tabline looks better
+let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages {{{1
 autocmd FileType gitcommit setlocal spell
