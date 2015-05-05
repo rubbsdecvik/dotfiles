@@ -196,7 +196,6 @@ set mouse=a
 set foldmethod=syntax
 set foldlevel=2
 set modeline
-set splitbelow
 set splitright
 " Because ancient vims dont' have this
 if exists('+relativenumber')
