@@ -336,6 +336,9 @@ nmap <leader>g :GitGutterToggle<CR>
 " CtrlP in Tag mode {{{2
 nnoremap <leader>. :CtrlPTag<CR>
 
+" CtrlP Clear Cache {{{2
+nnoremap <leader>c :CtrlPClearAllCaches
+
 " Update Tags {{{2
 if has("unix")
   let s:uname = system("uname")
