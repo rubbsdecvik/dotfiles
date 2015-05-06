@@ -321,9 +321,6 @@ else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
-" Toggle paste mode {{{2
-set pastetoggle=<leader>p
-
 " Open ScratchPad {{{2
 nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
@@ -340,7 +337,7 @@ nmap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>. :CtrlPTag<CR>
 
 " CtrlP Clear Cache {{{2
-nnoremap <leader>c :CtrlPClearAllCaches
+nnoremap <leader>p :CtrlPClearAllCaches
 
 " Update Tags {{{2
 if has("unix")
