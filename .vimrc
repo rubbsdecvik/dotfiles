@@ -305,6 +305,11 @@ let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 " let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby","python", "php"],
+    \ "passive_filetypes": ["eruby"] }
+
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
 
