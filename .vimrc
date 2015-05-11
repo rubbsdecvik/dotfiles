@@ -174,6 +174,9 @@ Plug 'ludovicchabant/vim-gutentags'
 " More text objects {{{2
 Plug 'wellle/targets.vim'
 
+" Use EditorConfig, like the rest of Pardot {{{2
+Plug 'editorconfig/editorconfig-vim'
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
