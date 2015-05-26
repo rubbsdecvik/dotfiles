@@ -46,7 +46,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-tbone'
 
 " Auto-detect and setup expandtab, tabstop, and shiftwidth {{{3
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth' " Commenting out because editor-config is more
+" explicit
 
 " Setup Abbreviations that auto-scale {{{3
 Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
@@ -176,6 +177,9 @@ Plug 'wellle/targets.vim'
 
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
+
+" Add time tracking {{{2
+Plug 'wakatime/vim-wakatime'
 
 " End of Plugin Manager {{{2
 call plug#end()
