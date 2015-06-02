@@ -5,7 +5,8 @@
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-	excludesfile = /Users/patrick.regan/.gitignore_global
+	excludesfile = /Users/patrick.regan/.gitignore
+	editor = vim
 [apply]
   whitespace = fix
 [alias]
@@ -67,6 +68,6 @@
   main-window-view = HistoryView
   file-view-vpane-position = 1012
 [push]
-  default = simple
+	default = current
 [init]
   templatedir = ~/.git_template
