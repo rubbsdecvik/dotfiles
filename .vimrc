@@ -25,6 +25,7 @@ Plug 'tpope/vim-repeat'
 
 " Git integration {{{3
 Plug 'tpope/vim-fugitive' " Actual git commands
+let g:fugitive_github_domains = ['https://github.com', 'https://git.dev.pardot.com']
 Plug 'tpope/vim-git' " Syntax for git related things
 
 " Add, remove, and change surrounding pairs like (),[], etc. {{{3
@@ -181,6 +182,12 @@ Plug 'editorconfig/editorconfig-vim'
 " Add time tracking {{{2
 Plug 'wakatime/vim-wakatime'
 
+" Different form of note taking {{{2
+Plug 'fmoralesc/vim-pad'
+let g:pad#dir = "~/Dropbox/notes/"
+let g:pad#default_format = "pandoc"
+let g:pad#local_dir='.notes'
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
@@ -334,7 +341,7 @@ else
 endif
 
 " Open ScratchPad {{{2
-nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
+" nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
 " Open EmailScratchPad {{{2
 nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
