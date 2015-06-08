@@ -356,7 +356,7 @@ nmap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>. :CtrlPTag<CR>
 
 " CtrlP Clear Cache {{{2
-nnoremap <leader>p :CtrlPClearAllCaches
+nnoremap <leader>p :CtrlPClearAllCaches<CR>
 
 " Update Tags {{{2
 if has("unix")
