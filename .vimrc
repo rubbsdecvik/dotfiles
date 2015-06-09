@@ -114,6 +114,7 @@ Plug 'scrooloose/syntastic'
 " Fuzzy Finding {{{2
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
+let g:ctrlp_show_hidden = 1
 
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
