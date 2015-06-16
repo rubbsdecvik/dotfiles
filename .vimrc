@@ -46,10 +46,6 @@ Plug 'tpope/vim-commentary'
 " Some Tmux integrations for interacting *with* tmux {{{3
 Plug 'tpope/vim-tbone'
 
-" Auto-detect and setup expandtab, tabstop, and shiftwidth {{{3
-" Plug 'tpope/vim-sleuth' " Commenting out because editor-config is more
-" explicit
-
 " Setup Abbreviations that auto-scale {{{3
 Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
 
@@ -303,6 +299,9 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType pandoc set tw=78
 autocmd FileType pandoc setlocal spell
 autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
+autocmd FileType pandoc setlocal tabstop=2
+autocmd FileType pandoc setlocal shiftwidth=2
+autocmd FileType pandoc setlocal expandtab
 
 " Pandoc internal codeblock highlights
 let g:pandoc#syntax#codeblocks#embeds#langs  = ["json=javascript","ruby","python","bash=sh"]
