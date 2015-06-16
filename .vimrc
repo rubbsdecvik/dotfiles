@@ -117,7 +117,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'ajh17/VimCompletesMe'
 
 " Chef sugar {{{2
-Plug 'dougireton/vim-chef', { 'for': 'chef' }
+Plug 'dougireton/vim-chef', { 'for': ['ruby','chef'] }
 
 " Visualize the undo tree {{{2
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle','GundoHide','GundoRenderGraph','GundoShow'] }
