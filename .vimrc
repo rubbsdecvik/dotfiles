@@ -151,13 +151,6 @@ Plug 'tmux-plugins/vim-tmux'
 " Not really semantic, but helpful coloring for dense docs {{{2
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
-" Gives basic Github integration into Vim. {{{2
-if has("ruby") && v:version >= 700
-  Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity', 'GHD', 'GHA'] }
-  let g:github_dashboard = { 'username': 'rubbsdecvik', 'password': $GITHUB_TOKEN }
-  nmap <leader>c :GHA Pardot/chef<cr>
-endif
-
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
 
