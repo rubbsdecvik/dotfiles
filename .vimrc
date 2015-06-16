@@ -180,7 +180,6 @@ call plug#end()
 
 """""""""""""""""""""""""""""""""""""" General {{{1
 set laststatus=2
-set t_Co=256
 colorscheme gruvbox
 set background=dark
 set incsearch " start moving while searching
