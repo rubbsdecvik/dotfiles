@@ -49,9 +49,6 @@ Plug 'tpope/vim-tbone'
 " Setup Abbreviations that auto-scale {{{3
 Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
 
-" Keep sessions updated {{{3
-Plug 'tpope/vim-obsession'
-
 " Good JSON commands {{{3
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
 
