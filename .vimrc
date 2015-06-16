@@ -151,9 +151,6 @@ Plug 'tmux-plugins/vim-tmux'
 " Not really semantic, but helpful coloring for dense docs {{{2
 Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
-" Helpful for Prose stuff. {{{2
-Plug 'reedes/vim-wordy', { 'on': ['Wordy','NoWordy','NextWordy','PrevWordy']}
-
 " Gives basic Github integration into Vim. {{{2
 if has("ruby") && v:version >= 700
   Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity', 'GHD', 'GHA'] }
