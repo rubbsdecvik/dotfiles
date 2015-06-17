@@ -171,6 +171,7 @@ Plug 'fmoralesc/vim-pad'
 let g:pad#dir = "~/Dropbox/notes/"
 let g:pad#default_format = "pandoc"
 let g:pad#local_dir='.notes'
+let g:pad#window_height= 20
 
 " End of Plugin Manager {{{2
 call plug#end()
