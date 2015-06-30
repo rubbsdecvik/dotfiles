@@ -16,7 +16,6 @@ call plug#begin('~/.vim/bundle')
 
 " Gruvbox My current theme of choice {{{2
 Plug 'morhetz/gruvbox'
-colorscheme gruvbox
 
 " ########################################################
 " Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2
@@ -183,6 +182,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""" General {{{1
 set laststatus=2
 set background=dark
+colorscheme gruvbox
 set incsearch " start moving while searching
 set smartcase
 set scrolloff=2
