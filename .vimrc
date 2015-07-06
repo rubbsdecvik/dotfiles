@@ -87,7 +87,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)','EasyAlign'] }
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" Start interactive EasyAlign for a motion/text object (e.g. geip)
 nmap ge <Plug>(EasyAlign)
 
 " Pandoc integration, because Markdown is awesome. {{{2
@@ -196,9 +196,9 @@ set foldlevel=2
 set modeline
 set splitright
 " Because ancient vims dont' have this
-if exists('+relativenumber')
-  set relativenumber
-endif
+" if exists('+relativenumber')
+"   set relativenumber
+" endif
 if exists('+breakindent')
   set breakindent
 endif
