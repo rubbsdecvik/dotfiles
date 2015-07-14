@@ -16,6 +16,7 @@ call plug#begin('~/.vim/bundle')
 
 " Gruvbox My current theme of choice {{{2
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 
 " ########################################################
 " Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2

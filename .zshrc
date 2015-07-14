@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew brew-cask colorize command-not-found common-aliases docker git-prompt github gitignore gnu-utils history jsontools knife knife_ssh mosh osx rsync tmux sudo vim-integration vi-mode vundle colored-man)
+plugins=(git brew brew-cask colorize command-not-found common-aliases docker git-prompt github gitignore gnu-utils history jsontools knife knife_ssh mosh osx rsync tmux sudo vim-integration vundle colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
