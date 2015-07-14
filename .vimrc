@@ -56,8 +56,7 @@ Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
 " Auto-add end in ruby and chef files {{{3
 Plug 'tpope/vim-endwise', { 'for': ['ruby','chef','sh','lua'] }
 
-" Super helpful non-intrusive key-pairs for common actions, like next in the
-" quicklist `]q` {{{3
+" Helpful key-pairs for common actions: i.e. `]q` = next in qlist {{{3
 Plug 'tpope/vim-unimpaired'
 
 " Batch off commands to Tmux and/or backround tasks {{{3
@@ -113,7 +112,6 @@ let g:ctrlp_show_hidden = 1
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
 
@@ -123,15 +121,11 @@ Plug 'dougireton/vim-chef', { 'for': ['ruby','chef'] }
 " Visualize the undo tree {{{2
 Plug 'sjl/gundo.vim', { 'on': ['GundoToggle','GundoHide','GundoRenderGraph','GundoShow'] }
 
-" Kept on because it doesn't clobber vimgrep and isn't super heavy, also,
-" incase ag isn't installed {{{2
+" Ack incase ag isn't installed. Not super heavy {{{2
 Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow'] }
 
 " Silver Searcher support for Vim. Fairly lightweight. {{{2
 Plug 'rking/ag.vim', { 'on': ['Ag', 'AgAdd', 'AgFromSearch', 'LAg', 'LAgAdd', 'AgFile', 'AgHelp', 'LAgHelp', 'AwkBuffer', 'LAgBuffer'] }
-
-" Makes pasting in do auto :setpaste and :setnopaste when needed {{{2
-Plug 'ConradIrwin/vim-bracketed-paste'
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
@@ -139,8 +133,7 @@ Plug 'airblade/vim-gitgutter'
 " Highlight, and also trim whitespace. Pretty lightweight {{{2
 Plug 'ntpeters/vim-better-whitespace'
 
-" Ansible specific YAML highlighting not lazing loading so it can recognize
-" when it's in Ansible stuff {{{2
+" Ansible specific YAML highlighting {{{2
 Plug 'chase/vim-ansible-yaml'
 
 " Because working with CSV within vim is actually fun and useful {{{2
@@ -174,6 +167,9 @@ let g:pad#default_format = "pandoc"
 let g:pad#local_dir='.notes'
 let g:pad#window_height= 20
 
+" Terminal Settings! {{{2
+Plug 'wincet/terminus'
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
@@ -191,7 +187,6 @@ set showcmd
 set number
 set writebackup
 set ttyfast
-set mouse=a
 set foldmethod=syntax
 set foldlevel=2
 set modeline
