@@ -64,10 +64,6 @@ Plug 'tpope/vim-vinegar'
 
 " thus ends the tpope collection
 " ######################################################## }}}2
-
-" A viml library that us used by other plugins {{{2
-Plug 'tomtom/tlib_vim'
-
 " A nice status-line that is plugin aware {{{2
 Plug 'bling/vim-airline'
 
@@ -141,13 +137,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Add time tracking {{{2
 Plug 'wakatime/vim-wakatime'
-
-" Different form of note taking {{{2
-Plug 'fmoralesc/vim-pad'
-let g:pad#dir = "~/Dropbox/notes/"
-let g:pad#default_format = "pandoc"
-let g:pad#local_dir='.notes'
-let g:pad#window_height= 20
 
 " Terminal Settings! {{{2
 Plug 'wincent/terminus'
