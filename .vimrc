@@ -280,45 +280,28 @@ let g:vim_json_syntax_conceal = 0
 """"""""""""""""""""""""""""""""""""""" GitGutter {{{1
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
-" highlight clear SignColumn
 
 " """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc {{{2
 if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
+elseif filereadable(expand("~/workspace/dotfiles/.vimrc"))
+  nmap <leader>v :tabedit ~/workspace/dotfiles/.vimrc<CR>
 else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
 " Open ScratchPad {{{2
-" nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
-
-" Open EmailScratchPad {{{2
-nmap <leader>e :tabedit ~/Dropbox/Email.md<cr>
+nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
 " Json Tool Useage {{{2
 nmap <leader>j :%!python -m json.tool<CR>
-
-" Toggle Git Gutter {{{2
-nmap <leader>g :GitGutterToggle<CR>
 
 " CtrlP in Tag mode {{{2
 nnoremap <leader>. :CtrlPTag<CR>
 
 " CtrlP Clear Cache {{{2
-nnoremap <leader>p :CtrlPClearAllCaches<CR>
-
-" Update Tags {{{2
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    " Do Mac stuff here
-    nnoremap <silent> <Leader>t :Dispatch! /usr/local/bin/ctags -R -f ./.git/tags .<CR>
-    au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-  endif
-else
-  nnoremap <silent> <Leader>t :Dispatch! ctags -R -f ./.git/tags .<CR>
-endif
+nnoremap <leader>c :CtrlPClearAllCaches<CR>
 
 " Whitespace stuff {{{2
 " Whitespace Highlight Toggle
@@ -328,8 +311,5 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 " prettify {{{2
 nnoremap <leader>= gggqG``
-
-" Toggle SemanticHighlighting {{{2
-nnoremap <silent> <Leader>h :SemanticHighlightToggle<CR>
 
 " vim: foldmethod=marker foldlevel=1
