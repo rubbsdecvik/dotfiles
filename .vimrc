@@ -162,10 +162,6 @@ set foldmethod=syntax
 set foldlevel=2
 set modeline
 set splitright
-" Because ancient vims dont' have this
-" if exists('+relativenumber')
-"   set relativenumber
-" endif
 if exists('+breakindent')
   set breakindent
 endif
