@@ -230,10 +230,8 @@ set backspace=indent,eol,start
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
 """""""""""""""""""""""""""""""""""""" airline {{{1
-"let g:airline_powerline_fonts=1
-let g:airline_symbols = {}
-
 " Airline with Unicode (more portable)
+let g:airline_symbols = {} " Need to clear out defaults first
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '¶'
