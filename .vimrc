@@ -68,7 +68,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'bling/vim-airline'
 
 " Syntax for Jinja templates {{{2
-Plug 'lepture/vim-jinja'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Syntax highlighting for a lot of 'extras' {{{2
 Plug 'sheerun/vim-polyglot'
