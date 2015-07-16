@@ -44,12 +44,6 @@ Plug 'tpope/vim-eunuch', { 'on': ['Remove','Unlink','Move','Rename','Chmod','Mkd
 " Simple, syntax aware commenting of lines {{{3
 Plug 'tpope/vim-commentary'
 
-" Some Tmux integrations for interacting *with* tmux {{{3
-Plug 'tpope/vim-tbone'
-
-" Setup Abbreviations that auto-scale {{{3
-Plug 'tpope/vim-abolish', { 'on': ['Abolish','Subvert'] }
-
 " Good JSON commands {{{3
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
 
@@ -118,9 +112,6 @@ Plug 'ajh17/VimCompletesMe'
 " Chef sugar {{{2
 Plug 'dougireton/vim-chef', { 'for': ['ruby','chef'] }
 
-" Visualize the undo tree {{{2
-Plug 'sjl/gundo.vim', { 'on': ['GundoToggle','GundoHide','GundoRenderGraph','GundoShow'] }
-
 " Ack incase ag isn't installed. Not super heavy {{{2
 Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow'] }
 
@@ -136,23 +127,14 @@ Plug 'ntpeters/vim-better-whitespace'
 " Ansible specific YAML highlighting {{{2
 Plug 'chase/vim-ansible-yaml'
 
-" Because working with CSV within vim is actually fun and useful {{{2
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
-
 " Syntax & sugar for editing .tmux.conf. NOTE: Not redundant with tbone {{{2
 Plug 'tmux-plugins/vim-tmux'
-
-" Not really semantic, but helpful coloring for dense docs {{{2
-Plug 'jaxbot/semantic-highlight.vim', { 'on': ['SemanticHighlight','SemanticHighlightRevert','SemanticHighlightToggle' ] }
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
 
 " Auto Tag management {{{2
 Plug 'ludovicchabant/vim-gutentags'
-
-" More text objects {{{2
-Plug 'wellle/targets.vim'
 
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
@@ -168,7 +150,7 @@ let g:pad#local_dir='.notes'
 let g:pad#window_height= 20
 
 " Terminal Settings! {{{2
-Plug 'wincet/terminus'
+Plug 'wincent/terminus'
 
 " End of Plugin Manager {{{2
 call plug#end()
