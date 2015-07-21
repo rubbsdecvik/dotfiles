@@ -14,7 +14,7 @@ endif
 " Required:
 call plug#begin('~/.vim/bundle')
 
-" Gruvbox My current theme of choice {{{2
+" A few colorschemes I like {{{2
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
@@ -223,10 +223,13 @@ if exists("+undofile")
 endif
 
 
-" {{{2
+" Yaml tweaks {{{2
 au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+
+" Make backspace actually useful {{{2
 set backspace=indent,eol,start
 
+" Force Chef to be recognized in Ruby files {{{2
 autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
 """""""""""""""""""""""""""""""""""""" airline {{{1
