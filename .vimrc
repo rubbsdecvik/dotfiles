@@ -62,6 +62,9 @@ Plug 'tpope/vim-speeddating'
 " Make the built-in explorer act modal {{{3
 Plug 'tpope/vim-vinegar'
 
+" Session management {{{3
+Plug 'tpope/vim-obsession'
+
 " thus ends the tpope collection
 " ######################################################## }}}2
 " A nice status-line that is plugin aware {{{2
