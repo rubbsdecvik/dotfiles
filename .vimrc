@@ -150,7 +150,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""" General {{{1
 set laststatus=2
 set background=dark
-colorscheme gruvbox
+colorscheme PaperColor
 set incsearch " start moving while searching
 set smartcase
 set scrolloff=2
