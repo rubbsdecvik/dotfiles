@@ -109,7 +109,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'ajh17/VimCompletesMe'
 
 " Chef sugar {{{2
-Plug 'dougireton/vim-chef', { 'for': ['ruby','chef'] }
+Plug 'dougireton/vim-chef'
 
 " Ack incase ag isn't installed. Not super heavy {{{2
 Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow'] }
@@ -232,9 +232,6 @@ au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 " Make backspace actually useful {{{2
 set backspace=indent,eol,start
 
-" Force Chef to be recognized in Ruby files {{{2
-autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
-
 """""""""""""""""""""""""""""""""""""" airline {{{1
 " Airline with Unicode (more portable)
 let g:airline_symbols = {} " Need to clear out defaults first
@@ -271,14 +268,22 @@ let g:pandoc#folding#level                   = 2
 let g:syntastic_javascript_checkers = ['jscs','jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
-" The following is only helpful if your codebase doesn't suck
-" let g:syntastic_check_on_open = 1
+
+" Check on things when we open them
+let g:syntastic_check_on_open = 1
+
+" Put all errors in the same list
 let g:syntastic_aggregate_errors = 1
 
+" Allow some checks to be more active than others
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "active_filetypes": ["ruby","python", "php"],
-    \ "passive_filetypes": ["eruby"] }
+    \ "passive_filetypes": [] }
+
+" Eruby's void context warnings are annoying. Get rid of them.
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
 
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
