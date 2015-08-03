@@ -200,7 +200,7 @@ set backup
 
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
-" Otherwise it saves it to ~/.vim/swap, ~/tmp or . {{{2
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
 if isdirectory($HOME . '/.vim/swap') == 0
   :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
 endif
@@ -209,7 +209,7 @@ set directory+=~/.vim/swap//
 set directory+=~/tmp//
 set directory+=.
 
-" viminfo stores the the state of your previous editing session {{{2
+" viminfo stores the the state of your previous editing session
 set viminfo+=n~/.vim/viminfo
 
 if exists("+undofile")
@@ -232,6 +232,9 @@ au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 " Make backspace actually useful {{{2
 set backspace=indent,eol,start
 
+" Completion changes
+set complete =.,w,b,u,t,i,kspell
+
 """""""""""""""""""""""""""""""""""""" airline {{{1
 " Airline with Unicode (more portable)
 let g:airline_symbols = {} " Need to clear out defaults first
@@ -251,13 +254,12 @@ autocmd FileType gitcommit setlocal spell
 """"""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
 autocmd FileType pandoc set tw=78
 autocmd FileType pandoc setlocal spell
-autocmd FileType text,markdown,pandoc let b:vcm_tab_complete = 'dict'
 autocmd FileType pandoc setlocal tabstop=2
 autocmd FileType pandoc setlocal shiftwidth=2
 autocmd FileType pandoc setlocal expandtab
 
 " Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs  = ["json=javascript","ruby","python","bash=sh"]
+let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh"]
 let g:pandoc#formatting#mode                 = 's'
 let g:pandoc#formatting#textwidth            = 80
 let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
@@ -322,5 +324,8 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 " prettify {{{2
 nnoremap <leader>= gggqG``
+
+" Python Test Running {{{2
+nmap <Leader>t :Dispatch py.test %:r_test.py
 
 " vim: foldmethod=marker foldlevel=1
