@@ -326,6 +326,6 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 nnoremap <leader>= gggqG``
 
 " Python Test Running {{{2
-nmap <Leader>t :Dispatch py.test %:r_test.py
+nmap <Leader>t :Dispatch py.test %:r_test.py<CR>
 
 " vim: foldmethod=marker foldlevel=1
