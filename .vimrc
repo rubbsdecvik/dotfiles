@@ -141,9 +141,6 @@ Plug 'ludovicchabant/vim-gutentags'
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
 
-" Add time tracking {{{2
-Plug 'wakatime/vim-wakatime'
-
 " Terminal Settings! {{{2
 Plug 'wincent/terminus'
 
@@ -154,20 +151,21 @@ call plug#end()
 " Non-Plugin Customizations go after this line
 
 """""""""""""""""""""""""""""""""""""" General {{{1
-set laststatus=2
-set background=dark
 colorscheme PaperColor
+set background=dark
+set foldlevel=2
+set foldmethod=syntax
 set incsearch " start moving while searching
-set smartcase
+set laststatus=2
+set modeline
+set number
 set scrolloff=2
 set showcmd
-set number
-set writebackup
-set ttyfast
-set foldmethod=syntax
-set foldlevel=2
-set modeline
+set smartcase
 set splitright
+set ttyfast
+set writebackup
+
 if exists('+breakindent')
   set breakindent
 endif
