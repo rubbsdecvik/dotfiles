@@ -129,6 +129,9 @@ Plug 'chase/vim-ansible-yaml'
 " Syntax & sugar for editing .tmux.conf. NOTE: Not redundant with tbone {{{2
 Plug 'tmux-plugins/vim-tmux'
 
+" Autocomplete from tmux {{{2
+Plug 'wellle/tmux-complete.vim'
+
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
 
