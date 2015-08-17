@@ -97,13 +97,9 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 " A good in-line linter {{{2
 Plug 'scrooloose/syntastic'
 
-" Fuzzy Finding {{{2
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher' " speeds up ctrlP
-let g:ctrlp_show_hidden = 1
-
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+nnoremap <silent> <C-p> :FZF<CR>
 
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
@@ -310,12 +306,6 @@ nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
 " Json Tool Useage {{{2
 nmap <leader>j :%!python -m json.tool<CR>
-
-" CtrlP in Tag mode {{{2
-nnoremap <leader>. :CtrlPTag<CR>
-
-" CtrlP Clear Cache {{{2
-nnoremap <leader>c :CtrlPClearAllCaches<CR>
 
 " Whitespace stuff {{{2
 " Whitespace Highlight Toggle
