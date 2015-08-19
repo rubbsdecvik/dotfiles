@@ -275,7 +275,9 @@ set complete =.,w,b,u,t,i,kspell
 
 """""""""""""""""""""""""""""""""""""" airline {{{1
 " Airline with Unicode (more portable)
-let g:airline_symbols = {} " Need to clear out defaults first
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '¶'
