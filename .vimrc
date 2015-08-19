@@ -6,7 +6,9 @@ scriptencoding utf-8
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+  augroup PlugInstall
+    autocmd! VimEnter * PlugInstall
+  augroup END
 endif
 " }}}1
 
@@ -27,6 +29,7 @@ Plug 'tpope/vim-repeat'
 " Git integration {{{3
 Plug 'tpope/vim-fugitive' " Actual git commands
 let g:fugitive_github_domains = ['https://github.com', 'https://git.dev.pardot.com']
+
 Plug 'tpope/vim-git' " Syntax for git related things
 
 " Add, remove, and change surrounding pairs like (),[], etc. {{{3
@@ -97,6 +100,35 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 " A good in-line linter {{{2
 Plug 'scrooloose/syntastic'
 
+""""""""""""""""""""""""""""""""""""""" Syntastic {{{3
+let g:syntastic_javascript_checkers = ['jscs','jshint']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
+
+" Check on things when we open them
+let g:syntastic_check_on_open = 1
+
+" Put all errors in the same list
+let g:syntastic_aggregate_errors = 1
+
+" Allow some checks to be more active than others
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby","python", "php"],
+    \ "passive_filetypes": [] }
+
+" Eruby's void context warnings are annoying. Get rid of them.
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
+
+
+" " NeoMake async lint checker {{{2
+" Plug 'benekastah/neomake'
+
+" augroup neomake_settings
+"   autocmd! BufWritePost,BufEnter * Neomake
+" augroup END
+
 " Ctrl-P for everything, including non-vim stuff {{{2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 nnoremap <silent> <C-p> :FZF<CR>
@@ -162,21 +194,28 @@ set splitright
 set ttyfast
 set writebackup
 
+augroup chef_settings
+  autocmd! FileType chef set makeprg=foodcritic
+augroup END
+
+
 if exists('+breakindent')
   set breakindent
 endif
 
-if &t_Co > 2 || has("gui_running")
+if &t_Co > 2 || has('gui_running')
   syntax on
   set hlsearch
 endif
 
 filetype on                          " try to detect filetypes
 filetype plugin indent on
-autocmd FileType text setlocal textwidth=78
+augroup text_settings
+  autocmd! FileType text setlocal textwidth=78
+augroup END
 
 " Set Dictionary location
-if has("unix")
+if has('unix')
   set dictionary=/usr/share/dict/words
 endif
 
@@ -209,7 +248,7 @@ set directory+=.
 " viminfo stores the the state of your previous editing session
 set viminfo+=n~/.vim/viminfo
 
-if exists("+undofile")
+if exists('+undofile')
   " undofile - This allows you to use undos after exiting and restarting
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
@@ -224,7 +263,9 @@ endif
 
 
 " Yaml tweaks {{{2
-au FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+augroup YAML
+  autocmd! FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+augroup END
 
 " Make backspace actually useful {{{2
 set backspace=indent,eol,start
@@ -240,20 +281,26 @@ let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⬍'
 let g:airline_symbols.paste = '✂'
+let g:airline_symbols.crypt = '🔐'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " Tabline looks better
 let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages {{{1
-autocmd FileType gitcommit setlocal spell
+augroup git_settings
+  autocmd! FileType gitcommit setlocal spell
+augroup END
 
 """"""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
-autocmd FileType pandoc set tw=78
-autocmd FileType pandoc setlocal spell
-autocmd FileType pandoc setlocal tabstop=2
-autocmd FileType pandoc setlocal shiftwidth=2
-autocmd FileType pandoc setlocal expandtab
+augroup pandoc_settings
+  autocmd!
+  autocmd FileType pandoc set tw=78
+  autocmd FileType pandoc setlocal spell
+  autocmd FileType pandoc setlocal tabstop=2
+  autocmd FileType pandoc setlocal shiftwidth=2
+  autocmd FileType pandoc setlocal expandtab
+augroup END
 
 " Pandoc internal codeblock highlights
 let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh"]
@@ -262,27 +309,6 @@ let g:pandoc#formatting#textwidth            = 80
 let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
 let g:pandoc#folding#level                   = 2
 
-
-""""""""""""""""""""""""""""""""""""""" Syntastic {{{1
-let g:syntastic_javascript_checkers = ['jscs','jshint']
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
-
-" Check on things when we open them
-let g:syntastic_check_on_open = 1
-
-" Put all errors in the same list
-let g:syntastic_aggregate_errors = 1
-
-" Allow some checks to be more active than others
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["ruby","python", "php"],
-    \ "passive_filetypes": [] }
-
-" Eruby's void context warnings are annoying. Get rid of them.
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of a variable in void context'}
 
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
@@ -293,9 +319,9 @@ let g:gitgutter_realtime=1500
 
 " """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc {{{2
-if filereadable(expand("~/workspace/personal/dotfiles/.vimrc"))
+if filereadable(expand('~/workspace/personal/dotfiles/.vimrc'))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
-elseif filereadable(expand("~/workspace/dotfiles/.vimrc"))
+elseif filereadable(expand('~/workspace/dotfiles/.vimrc'))
   nmap <leader>v :tabedit ~/workspace/dotfiles/.vimrc<CR>
 else
   nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -319,4 +345,4 @@ nnoremap <leader>= gggqG``
 " Python Test Running {{{2
 nmap <Leader>t :Dispatch py.test %:r_test.py<CR>
 
-" vim: foldmethod=marker foldlevel=1
+" vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
