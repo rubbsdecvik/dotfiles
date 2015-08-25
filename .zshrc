@@ -96,11 +96,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
-ctrlp() {
-  </dev/tty nvim -c CtrlP
-}
-zle -N ctrlp
-
-bindkey "^p" ctrlp
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_CTRL_T_COMMAND="find -L . \( -fstype 'dev' -o -fstype 'proc' \) -prune -o -type f -print -o -type d -print -o -type l -print"
+
+
+source $HOME/.zsh_sensative
