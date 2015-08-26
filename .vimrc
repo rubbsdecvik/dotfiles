@@ -172,6 +172,9 @@ Plug 'editorconfig/editorconfig-vim'
 " Terminal Settings! {{{2
 Plug 'wincent/terminus'
 
+" Because working with CSV within vim is actually fun and useful {{{2
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
