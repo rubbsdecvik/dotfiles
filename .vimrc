@@ -17,7 +17,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " A few colorschemes I like {{{2
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
 " ########################################################
@@ -123,7 +123,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 
 " " NeoMake async lint checker {{{2
-" Plug 'benekastah/neomake'
+" " Plug 'benekastah/neomake'
+" Plug '~/workspace/personal/neomake'
+" let g:neomake_logfile='neomake.log'
 
 " augroup neomake_settings
 "   autocmd! BufWritePost,BufEnter * Neomake
@@ -171,6 +173,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Terminal Settings! {{{2
 Plug 'wincent/terminus'
+" Don't change cursor shape. It's incompatible with older Vim's anyway
+let g:TerminusCursorShape=0
 
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
@@ -196,11 +200,6 @@ set smartcase
 set splitright
 set ttyfast
 set writebackup
-
-augroup chef_settings
-  autocmd! FileType chef set makeprg=foodcritic
-augroup END
-
 
 if exists('+breakindent')
   set breakindent
