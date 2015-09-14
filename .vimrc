@@ -73,9 +73,6 @@ Plug 'tpope/vim-obsession'
 " A nice status-line that is plugin aware {{{2
 Plug 'bling/vim-airline'
 
-" Syntax for Jinja templates {{{2
-Plug 'Glench/Vim-Jinja2-Syntax'
-
 " Syntax highlighting for a lot of 'extras' {{{2
 Plug 'sheerun/vim-polyglot'
 
@@ -154,7 +151,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Ansible specific YAML highlighting {{{2
-Plug 'chase/vim-ansible-yaml'
+Plug 'pearofducks/ansible-vim'
 
 " Syntax & sugar for editing .tmux.conf. NOTE: Not redundant with tbone {{{2
 Plug 'tmux-plugins/vim-tmux'
