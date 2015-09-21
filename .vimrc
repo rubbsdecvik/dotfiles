@@ -159,9 +159,6 @@ Plug 'tmux-plugins/vim-tmux'
 " Autocomplete from tmux {{{2
 Plug 'wellle/tmux-complete.vim'
 
-" Better pane choosing {{{2
-Plug 't9md/vim-choosewin'
-
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
 
