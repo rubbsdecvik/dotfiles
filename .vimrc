@@ -176,6 +176,11 @@ let g:TerminusCursorShape=0
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
+" Golden Ratio Split Management {{{2
+Plug 'roman/golden-ratio'
+" Preview etc are not touched
+let g:golden_ratio_exclude_nonmodifiable = 1
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
