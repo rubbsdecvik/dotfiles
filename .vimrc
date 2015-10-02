@@ -301,7 +301,7 @@ augroup pandoc_settings
   autocmd FileType pandoc setlocal tabstop=2
   autocmd FileType pandoc setlocal shiftwidth=2
   autocmd FileType pandoc setlocal expandtab
-  autocmd FileType pandoc set foldlevel=0
+  autocmd FileType pandoc setlocal foldlevel=0
 augroup END
 
 " Pandoc internal codeblock highlights
