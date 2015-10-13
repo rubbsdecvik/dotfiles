@@ -98,7 +98,7 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 Plug 'scrooloose/syntastic'
 
 """"""""""""""""""""""""""""""""""""""" Syntastic {{{3
-let g:syntastic_javascript_checkers = ['jscs','jshint']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 
