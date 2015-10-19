@@ -138,11 +138,10 @@ Plug 'ajh17/VimCompletesMe'
 " Chef sugar {{{2
 Plug 'dougireton/vim-chef'
 
-" Ack incase ag isn't installed. Not super heavy {{{2
-Plug 'mileszs/ack.vim', { 'on': ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'LAckHelp', 'AwkWindow', 'LAckWindow'] }
-
-" Silver Searcher support for Vim. Fairly lightweight. {{{2
-Plug 'rking/ag.vim', { 'on': ['Ag', 'AgAdd', 'AgFromSearch', 'LAg', 'LAgAdd', 'AgFile', 'AgHelp', 'LAgHelp', 'AwkBuffer', 'LAgBuffer'] }
+" Ferret to replace all search plugins {{{2
+Plug 'wincent/ferret', { 'on': ['Ack', 'Acks', 'Lack', 'Qargs'] }
+let g:FerretMap=0
+command Ag Ack
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
