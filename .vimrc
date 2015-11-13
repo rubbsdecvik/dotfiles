@@ -141,7 +141,6 @@ Plug 'dougireton/vim-chef'
 " Ferret to replace all search plugins {{{2
 Plug 'wincent/ferret', { 'on': ['Ack', 'Acks', 'Lack', 'Qargs'] }
 let g:FerretMap=0
-command Ag Ack
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
@@ -151,12 +150,6 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Ansible specific YAML highlighting {{{2
 Plug 'pearofducks/ansible-vim'
-
-" Syntax & sugar for editing .tmux.conf. NOTE: Not redundant with tbone {{{2
-Plug 'tmux-plugins/vim-tmux'
-
-" Autocomplete from tmux {{{2
-Plug 'wellle/tmux-complete.vim'
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides'
