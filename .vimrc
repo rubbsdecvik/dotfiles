@@ -205,6 +205,10 @@ augroup text_settings
   autocmd! FileType text setlocal textwidth=78
 augroup END
 
+augroup cronsettings
+  autocmd! filetype crontab setlocal nobackup nowritebackup
+augroup END
+
 " Set Dictionary location
 if has('unix')
   set dictionary=/usr/share/dict/words
