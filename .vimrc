@@ -348,7 +348,18 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 nnoremap <leader>= gggqG``
 
 " Fix Ruby Hashes {{{2
-nnoremap <silent> <leader>r :!rubocop --auto-correct %<CR>
+" Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
+
+function! RubyHashesAll()
+  :%s/:\([^ ]*\)\(\s*\)=>/\1:/ge
+endfunction
+
+function! RubyHashesSelected()
+  :'<,'>s/:\([^ ]*\)\(\s*\)=>/\1:/ge
+endfunction
+
+nnoremap <leader>r :call RubyHashesAll()<CR>
+xnoremap <leader>r :call RubyHashesSelected()<CR>
 
 " Python Test Running {{{2
 nmap <Leader>t :Dispatch py.test %:r_test.py<CR>
