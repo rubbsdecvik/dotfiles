@@ -347,7 +347,7 @@ nnoremap <silent> <leader>W :StripWhitespace<CR>
 " prettify {{{2
 nnoremap <leader>= gggqG``
 
-" Fix Ruby Hashes
+" Fix Ruby Hashes {{{2
 nnoremap <leader>r :!rubocop --auto-correct %<CR>
 
 " Python Test Running {{{2
