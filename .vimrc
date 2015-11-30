@@ -132,11 +132,14 @@ let g:syntastic_eruby_ruby_quiet_messages =
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 nnoremap <silent> <C-p> :FZF<CR>
 
-" Ultisnips with snippets {{{2
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" More native-like autocomplete than neocomplete {{{2
+Plug 'ajh17/VimCompletesMe'
 
-" YouCompleteMe {{{2
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" " Ultisnips with snippets {{{2
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" " YouCompleteMe {{{2
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " Chef sugar {{{2
 Plug 'dougireton/vim-chef'
