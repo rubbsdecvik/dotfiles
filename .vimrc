@@ -135,12 +135,6 @@ nnoremap <silent> <C-p> :FZF<CR>
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
 
-" " Ultisnips with snippets {{{2
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" " YouCompleteMe {{{2
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
 " Chef sugar {{{2
 Plug 'dougireton/vim-chef'
 
