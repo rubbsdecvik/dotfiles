@@ -145,9 +145,6 @@ let g:FerretMap=0
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
 
-" Highlight, and also trim whitespace. Pretty lightweight {{{2
-Plug 'ntpeters/vim-better-whitespace'
-
 " Ansible specific YAML highlighting {{{2
 Plug 'pearofducks/ansible-vim'
 
@@ -334,12 +331,6 @@ nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
 " Json Tool Useage {{{2
 nmap <leader>j :%!python -m json.tool<CR>
-
-" Whitespace stuff {{{2
-" Whitespace Highlight Toggle
-nnoremap <silent> <leader>w :ToggleWhitespace<CR>
-" And Strip it
-nnoremap <silent> <leader>W :StripWhitespace<CR>
 
 " prettify {{{2
 nnoremap <leader>= gggqG``
