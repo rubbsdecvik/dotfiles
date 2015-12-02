@@ -329,12 +329,6 @@ endif
 " Open ScratchPad {{{2
 nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
 
-" Json Tool Useage {{{2
-nmap <leader>j :%!python -m json.tool<CR>
-
-" prettify {{{2
-nnoremap <leader>= gggqG``
-
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
 
@@ -349,7 +343,5 @@ endfunction
 nnoremap <leader>r :call RubyHashesAll()<CR>
 xnoremap <leader>r :call RubyHashesSelected()<CR>
 
-" Python Test Running {{{2
-nmap <Leader>t :Dispatch py.test %:r_test.py<CR>
-
+" modline stuff {{{1
 " vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
