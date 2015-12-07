@@ -73,6 +73,23 @@ Plug 'tpope/vim-obsession'
 " A nice status-line that is plugin aware {{{2
 Plug 'bling/vim-airline'
 
+"""""""""""""""""""""""""""""""""""""" airline {{{3
+" Airline with Unicode (more portable)
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⬍'
+let g:airline_symbols.paste = '✂'
+let g:airline_symbols.crypt = '🔐'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" Tabline looks better
+let g:airline#extensions#tabline#enabled = 1
+
+
 " Syntax highlighting for a lot of 'extras' {{{2
 Plug 'sheerun/vim-polyglot'
 
@@ -113,6 +130,10 @@ endif
 
 " Better JSON syntax support {{{2
 Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
+
+"""""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{3
+let g:vim_json_syntax_conceal = 0
+
 
 " A good in-line linter {{{2
 Plug 'scrooloose/syntastic'
@@ -164,6 +185,11 @@ let g:FerretMap=0
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
+
+""""""""""""""""""""""""""""""""""""""" GitGutter {{{3
+"Make GitGutter slightly faster
+let g:gitgutter_realtime=1500
+
 
 " Ansible specific YAML highlighting {{{2
 Plug 'pearofducks/ansible-vim'
@@ -289,33 +315,10 @@ set backspace=indent,eol,start
 " Completion changes
 set complete =.,w,b,u,t,i,kspell
 
-"""""""""""""""""""""""""""""""""""""" airline {{{1
-" Airline with Unicode (more portable)
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⬍'
-let g:airline_symbols.paste = '✂'
-let g:airline_symbols.crypt = '🔐'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" Tabline looks better
-let g:airline#extensions#tabline#enabled = 1
-
 """"""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages {{{1
 augroup git_settings
   autocmd! FileType gitcommit setlocal spell
 augroup END
-
-"""""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
-let g:vim_json_syntax_conceal = 0
-
-""""""""""""""""""""""""""""""""""""""" GitGutter {{{1
-"Make GitGutter slightly faster
-let g:gitgutter_realtime=1500
 
 " """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc {{{2
