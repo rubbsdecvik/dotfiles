@@ -89,6 +89,26 @@ if v:version >= 704 " because old vims hate this
   Plug 'vim-pandoc/vim-pandoc-syntax'
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-after'
+
+  """"""""""""""""""""""""""""""""""""""" Pandoc file settings {{{3
+  augroup pandoc_settings
+    autocmd!
+    autocmd FileType pandoc set tw=78
+    autocmd FileType pandoc setlocal spell
+    autocmd FileType pandoc setlocal tabstop=2
+    autocmd FileType pandoc setlocal shiftwidth=2
+    autocmd FileType pandoc setlocal expandtab
+    autocmd FileType pandoc setlocal foldlevel=0
+    autocmd FileType pandoc setlocal foldmethod=syntax
+  augroup END
+
+  " Pandoc internal codeblock highlights
+  let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh"]
+  let g:pandoc#formatting#mode                 = 's'
+  let g:pandoc#formatting#textwidth            = 80
+  let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
+  let g:pandoc#folding#level                   = 2
+
 endif
 
 " Better JSON syntax support {{{2
@@ -289,25 +309,6 @@ let g:airline#extensions#tabline#enabled = 1
 augroup git_settings
   autocmd! FileType gitcommit setlocal spell
 augroup END
-
-""""""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
-augroup pandoc_settings
-  autocmd!
-  autocmd FileType pandoc set tw=78
-  autocmd FileType pandoc setlocal spell
-  autocmd FileType pandoc setlocal tabstop=2
-  autocmd FileType pandoc setlocal shiftwidth=2
-  autocmd FileType pandoc setlocal expandtab
-  autocmd FileType pandoc setlocal foldlevel=0
-augroup END
-
-" Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh"]
-let g:pandoc#formatting#mode                 = 's'
-let g:pandoc#formatting#textwidth            = 80
-let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
-let g:pandoc#folding#level                   = 2
-
 
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{1
 let g:vim_json_syntax_conceal = 0
