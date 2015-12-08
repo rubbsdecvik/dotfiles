@@ -134,7 +134,6 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{3
 let g:vim_json_syntax_conceal = 0
 
-
 " A good in-line linter {{{2
 Plug 'scrooloose/syntastic'
 
@@ -189,7 +188,6 @@ Plug 'airblade/vim-gitgutter'
 """"""""""""""""""""""""""""""""""""""" GitGutter {{{3
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
-
 
 " Ansible specific YAML highlighting {{{2
 Plug 'pearofducks/ansible-vim'
