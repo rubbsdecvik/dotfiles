@@ -193,7 +193,7 @@ let g:gitgutter_realtime=1500
 Plug 'pearofducks/ansible-vim'
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGuidesDisable','IndentGuidesToggle'] }
 
 " Auto Tag management {{{2
 Plug 'ludovicchabant/vim-gutentags'
