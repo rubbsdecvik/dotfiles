@@ -32,6 +32,9 @@ let g:fugitive_github_domains = ['https://github.com', 'https://git.dev.pardot.c
 
 Plug 'tpope/vim-git' " Syntax for git related things
 
+" Github Integration {{{3
+Plug 'tpope/vim-rhubarb'
+
 " Add, remove, and change surrounding pairs like (),[], etc. {{{3
 Plug 'tpope/vim-surround'
 
