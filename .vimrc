@@ -345,5 +345,9 @@ endfunction
 nnoremap <leader>r :call RubyHashesAll()<CR>
 xnoremap <leader>r :call RubyHashesSelected()<CR>
 
+" Find all TODOs and FIXMEs {{{2
+
+nnoremap <leader>t :Ack FIXME\|TODO<cr>
+
 " modline stuff {{{1
 " vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
