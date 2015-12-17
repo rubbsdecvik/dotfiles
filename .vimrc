@@ -172,9 +172,6 @@ Plug 'airblade/vim-gitgutter'
 "Make GitGutter slightly faster
 let g:gitgutter_realtime=1500
 
-" Ansible specific YAML highlighting {{{2
-Plug 'pearofducks/ansible-vim'
-
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGuidesDisable','IndentGuidesToggle'] }
 
