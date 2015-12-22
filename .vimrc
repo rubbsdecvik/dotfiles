@@ -328,8 +328,8 @@ endif
 " Open ScratchPad {{{2
 if filereadable(expand('~/Dropbox/Scratchpad.md'))
   nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
-elseif filereadable(expand('~/notes.md'))
-  nmap <leader>s :tabedit ~/notes.md<cr>
+elseif filereadable(expand('~/tmp/notes.md'))
+  nmap <leader>s :tabedit ~/tmp/notes.md<cr>
 else
   nmap <leader>v :tabedit /tmp/scratch.md<cr>
 endif
