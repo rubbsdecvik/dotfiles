@@ -326,7 +326,14 @@ else
 endif
 
 " Open ScratchPad {{{2
-nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
+if filereadable(expand('~/Dropbox/Scratchpad.md'))
+  nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
+elseif filereadable(expand('~/notes.md'))
+  nmap <leader>s :tabedit ~/notes.md<cr>
+else
+  nmap <leader>v :tabedit /tmp/scratch.md<cr>
+endif
+
 
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
