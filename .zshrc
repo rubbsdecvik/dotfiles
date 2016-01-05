@@ -45,12 +45,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew brew-cask colorize command-not-found common-aliases docker git-prompt github gitignore gnu-utils history jsontools knife knife_ssh mosh osx rsync tmux sudo vim-integration colored-man)
+plugins=(git brew brew-cask colorize command-not-found common-aliases docker git-prompt github gitignore gnu-utils jsontools knife knife_ssh mosh osx rsync taskwarrior tmux sudo colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+eval "$(chef shell-init zsh)"
 export PATH="/usr/local/sbin:/usr/local/bin:/Users/patrick.regan/.rbenv/shims:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Users/patrick.regan/bin:/Users/patrick.regan/bin/eclipse:/usr/local/opt/android-sdk/tools:/usr/local/opt/android-sdk/platform-tools:/usr/local/opt/android-sdk/build-tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -81,24 +82,15 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-bindkey '^R' history-incremental-pattern-search-backward
-
-jira_url="https://pardot.atlassian.net/"
-jira_rapid_board="true"
-
-eval "$(hub alias -s)"
+# bindkey '^R' history-incremental-pattern-search-backward
 
 alias knife='nocorrect knife'
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-#source /usr/local/Cellar/hub/1.12.2/share/zsh/site-functions/_hub
-
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export FZF_CTRL_T_COMMAND="find -L . \( -fstype 'dev' -o -fstype 'proc' \) -prune -o -type f -print -o -type d -print -o -type l -print"
+export FZF_DEFAULT_COMMAND="find -L . \( -fstype 'dev' -o -fstype 'proc' \) -prune -o -type f -print -o -type d -print -o -type l -print"
 
 
 source $HOME/.zsh_sensative
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
