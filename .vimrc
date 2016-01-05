@@ -331,7 +331,7 @@ if filereadable(expand('~/Dropbox/Scratchpad.md'))
 elseif filereadable(expand('~/tmp/notes.md'))
   nmap <leader>s :tabedit ~/tmp/notes.md<cr>
 else
-  nmap <leader>v :tabedit /tmp/scratch.md<cr>
+  nmap <leader>s :tabedit /tmp/scratch.md<cr>
 endif
 
 
