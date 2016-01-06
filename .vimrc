@@ -156,7 +156,7 @@ let g:syntastic_eruby_ruby_quiet_messages =
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } | Plug 'junegunn/fzf.vim'
 
 " FZF mappings {{{3
-" nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
