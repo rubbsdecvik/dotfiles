@@ -152,8 +152,22 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " augroup END
 
 " Ctrl-P for everything, including non-vim stuff {{{2
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-nnoremap <silent> <C-p> :FZF<CR>
+" Also has a vim plugin for extra wrapping and functionality
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } | Plug 'junegunn/fzf.vim'
+
+" FZF mappings {{{3
+" nnoremap <silent> <C-p> :Files<CR>
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
