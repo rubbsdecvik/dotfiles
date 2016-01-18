@@ -145,7 +145,7 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " " NeoMake async lint checker {{{2
 " " Plug 'benekastah/neomake'
 " Plug '~/workspace/personal/neomake'
-" let g:neomake_logfile='neomake.log'
+" " let g:neomake_logfile='neomake.log'
 
 " augroup neomake_settings
 "   autocmd! BufWritePost,BufEnter * Neomake
@@ -191,6 +191,10 @@ Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGui
 
 " Auto Tag management {{{2
 Plug 'ludovicchabant/vim-gutentags'
+
+if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/gems/ripper-tags-0.3.2/lib/ripper-tags.rb'))
+  let g:gutentags_ctags_executable_ruby = 'chef exec ripper-tags'
+end
 
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
@@ -272,7 +276,7 @@ let g:pandoc#folding#mode                    = "syntax"
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
 if isdirectory($HOME . '/.vim/backup') == 0
-  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+  call mkdir($HOME.'/.vim/backup', 'p')
 endif
 set backupdir-=.
 set backupdir+=.
@@ -285,7 +289,7 @@ set backup
 " If you have .vim-swap in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/swap, ~/tmp or .
 if isdirectory($HOME . '/.vim/swap') == 0
-  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+  call mkdir($HOME . '/.vim/swap', 'p')
 endif
 set directory=./.vim-swap//
 set directory+=~/.vim/swap//
@@ -293,7 +297,7 @@ set directory+=~/tmp//
 set directory+=.
 
 " viminfo stores the the state of your previous editing session
-if has('nvim')
+if exists('+shada')
   set shada+=n~/.nvim/shada
 else
   set viminfo+=n~/.vim/viminfo
@@ -305,7 +309,7 @@ if exists('+undofile')
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
   if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+    call mkdir($HOME . '/.vim/undo', 'p')
   endif
   set undodir=./.vim-undo//
   set undodir+=~/.vim/undo//
