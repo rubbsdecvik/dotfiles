@@ -235,6 +235,9 @@ if has('unix')
   set dictionary=/usr/share/dict/words
 endif
 
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
 
 if exists('+breakindent')
   set breakindent
