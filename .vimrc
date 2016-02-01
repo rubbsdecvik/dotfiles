@@ -74,8 +74,7 @@ Plug 'tpope/vim-obsession'
 " thus ends the tpope collection
 " ######################################################## }}}2
 " A nice status-line that is plugin aware {{{2
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
 """""""""""""""""""""""""""""""""""""" airline {{{3
 " Airline with Unicode (more portable)
