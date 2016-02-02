@@ -198,11 +198,15 @@ end
 
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Terminal Settings! {{{2
 Plug 'wincent/terminus'
 " Don't change cursor shape. It's incompatible with older Vim's anyway
 let g:TerminusCursorShape=0
+
+" Visualize Undo Tree {{{2
+Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow', 'GundoHide', 'GundoRenderGraph'] }
 
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
