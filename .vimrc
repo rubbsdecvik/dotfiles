@@ -274,6 +274,16 @@ let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
 let g:pandoc#folding#level                   = 0
 let g:pandoc#folding#mode                    = "syntax"
 
+""""""""""""""""""""""""""""""""""""""" Vimwiki file settings {{{1
+augroup vimwikisettings
+  autocmd!
+  autocmd FileType vimwiki setlocal shiftwidth=2
+  autocmd FileType vimwiki setlocal tabstop=2
+  autocmd FileType vimwiki nmap <leader>we <Plug>VimwikiSplitLink
+  autocmd FileType vimwiki nmap <leader>wq <Plug>VimwikiVSplitLink
+  autocmd FileType vimwiki nmap <leader>wc <Plug>VimwikiToggleListItem
+augroup END
+
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
 " Set annoying directories {{{2
 " Save your backups to a less annoying place than the current directory.
