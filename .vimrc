@@ -200,6 +200,10 @@ Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow', 'GundoHide', 'GundoRe
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
+" Vim Wiki {{{2
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki'}]
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
@@ -249,6 +253,10 @@ augroup END
 augroup cronsettings
   autocmd! filetype crontab setlocal nobackup nowritebackup
 augroup END
+
+"""""""""""""""""""""""""""""""""""""" Abbreviations {{{1
+" Insert mode ddate should add date stamp
+iab <expr> ddate strftime("%b %d - %a")
 
 """"""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
 augroup pandoc_settings
