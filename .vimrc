@@ -126,10 +126,13 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 
 " Check on things when we open them
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 
 " Put all errors in the same list
 let g:syntastic_aggregate_errors = 1
+
+" We're not using the local list for anything else anyway
+let g:syntastic_always_populate_loc_list = 1
 
 " Allow some checks to be more active than others
 let g:syntastic_mode_map = {
@@ -143,8 +146,8 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 
 " " NeoMake async lint checker {{{2
-" " Plug 'benekastah/neomake'
-" Plug '~/workspace/personal/neomake'
+" Plug 'benekastah/neomake'
+" " Plug '~/workspace/personal/neomake'
 " " let g:neomake_logfile='neomake.log'
 
 " augroup neomake_settings
@@ -170,10 +173,6 @@ let g:FerretMap=0
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
-
-""""""""""""""""""""""""""""""""""""""" GitGutter {{{3
-"Make GitGutter slightly faster
-let g:gitgutter_realtime=1500
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGuidesDisable','IndentGuidesToggle'] }
@@ -204,6 +203,9 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki'}]
 
+" Better directory navigation {{{2
+Plug 'justinmk/vim-dirvish', { 'on': ['Dirvish','Shdo'] }
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
@@ -225,6 +227,9 @@ set smartcase
 set splitright
 set ttyfast
 set writebackup
+
+" Make Swap file update more often
+set updatetime=250
 
 " Set Dictionary location
 if has('unix')
