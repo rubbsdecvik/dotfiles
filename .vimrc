@@ -146,9 +146,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 
 " " NeoMake async lint checker {{{2
-" Plug 'benekastah/neomake'
-" " Plug '~/workspace/personal/neomake'
-" " let g:neomake_logfile='neomake.log'
+" " Plug 'benekastah/neomake'
+" Plug '~/workspace/personal/neomake'
+" let g:neomake_logfile='neomake.log'
 
 " augroup neomake_settings
 "   autocmd! BufWritePost,BufEnter * Neomake
@@ -205,6 +205,9 @@ let g:vimwiki_list = [{'path': '~/Dropbox/wiki'}]
 
 " Better directory navigation {{{2
 Plug 'justinmk/vim-dirvish', { 'on': ['Dirvish','Shdo'] }
+
+" Undo Tree {{{2
+Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
 
 " End of Plugin Manager {{{2
 call plug#end()
