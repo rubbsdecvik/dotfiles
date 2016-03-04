@@ -276,7 +276,7 @@ augroup pandoc_settings
 augroup END
 
 " Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh"]
+let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh","yaml","ansible","ini=dosini","dosini"]
 let g:pandoc#formatting#textwidth            = 78
 let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
 let g:pandoc#folding#level                   = 0
@@ -341,7 +341,9 @@ endif
 
 " Yaml tweaks {{{2
 augroup YAML
-  autocmd! FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+  autocmd!
+  autocmd FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+  autocmd IndentGuidesEnable
 augroup END
 
 " Make backspace actually useful {{{2
