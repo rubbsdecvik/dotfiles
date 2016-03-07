@@ -343,7 +343,6 @@ endif
 augroup YAML
   autocmd!
   autocmd FileType yaml set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-  autocmd IndentGuidesEnable
 augroup END
 
 " Make backspace actually useful {{{2
