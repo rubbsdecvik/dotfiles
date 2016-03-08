@@ -17,7 +17,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " A few colorschemes I like {{{2
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
 " ########################################################
@@ -75,23 +75,6 @@ Plug 'tpope/vim-obsession'
 " ######################################################## }}}2
 " A nice status-line that is plugin aware {{{2
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-
-"""""""""""""""""""""""""""""""""""""" airline {{{3
-" Airline with Unicode (more portable)
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⬍'
-let g:airline_symbols.paste = '✂'
-let g:airline_symbols.crypt = '🔐'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" Tabline looks better
-let g:airline#extensions#tabline#enabled = 1
-
 
 " Syntax highlighting for a lot of 'extras' {{{2
 Plug 'sheerun/vim-polyglot'
@@ -184,6 +167,10 @@ if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/gems/ripper-tags-0.3.2/lib/ripp
   let g:gutentags_ctags_executable_ruby = 'chef exec ripper-tags'
 end
 
+if filereadable(expand('/usr/local/bin/phpctags'))
+  let g:gutentags_ctags_executable_php = 'phpctags'
+end
+
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -242,7 +229,6 @@ endif
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
-
 if exists('+breakindent')
   set breakindent
 endif
@@ -265,6 +251,25 @@ augroup END
 """""""""""""""""""""""""""""""""""""" Abbreviations {{{1
 " Insert mode ddate should add date stamp
 iab <expr> ddate strftime("%b %d - %a")
+
+"""""""""""""""""""""""""""""""""""""" airline {{{1
+" Airline with Unicode (more portable)
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⬍'
+let g:airline_symbols.paste = '✂'
+let g:airline_symbols.crypt = '🔐'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" Tabline looks better
+let g:airline#extensions#tabline#enabled = 1
+
+" show status of Obsession and tags
+let g:airline_section_z = airline#section#create(['%{gutentags#statusline("✎")} ','%{ObsessionStatus(''⊞'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 """"""""""""""""""""""""""""""""""""""" Pandoc file settings {{{1
 augroup pandoc_settings
