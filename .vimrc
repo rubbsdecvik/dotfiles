@@ -105,6 +105,7 @@ Plug 'scrooloose/syntastic'
 
 """"""""""""""""""""""""""""""""""""""" Syntastic {{{3
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_php_checkers = ['phplint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 
@@ -120,8 +121,8 @@ let g:syntastic_always_populate_loc_list = 1
 " Allow some checks to be more active than others
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["ruby","python", "php"],
-    \ "passive_filetypes": [] }
+    \ "active_filetypes": ["ruby","python"],
+    \ "passive_filetypes": ["php"] }
 
 " Eruby's void context warnings are annoying. Get rid of them.
 let g:syntastic_eruby_ruby_quiet_messages =
