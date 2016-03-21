@@ -403,9 +403,9 @@ xnoremap <leader>r :call RubyHashesSelected()<CR>
 
 nnoremap <leader>t :Ack FIXME\|TODO<cr>
 
-" Set List
+" Set List {{{2 
 
-nnoremap <leader>l :set list!
+nnoremap <leader>l :set list!<cr>
 
 " modline stuff {{{1
 " vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
