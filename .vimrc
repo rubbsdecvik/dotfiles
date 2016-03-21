@@ -218,6 +218,9 @@ set smartcase
 set splitright
 set ttyfast
 set writebackup
+set tabstop=2
+
+set listchars=tab:>›,trail:¬,nbsp:␣,space:·
 
 " Make Swap file update more often
 set updatetime=250
@@ -399,6 +402,10 @@ xnoremap <leader>r :call RubyHashesSelected()<CR>
 " Find all TODOs and FIXMEs {{{2
 
 nnoremap <leader>t :Ack FIXME\|TODO<cr>
+
+" Set List
+
+nnoremap <leader>l :set list!
 
 " modline stuff {{{1
 " vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
