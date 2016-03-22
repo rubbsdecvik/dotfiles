@@ -126,7 +126,7 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'dougireton/vim-chef'
 
 " Ferret to replace all search plugins {{{2
-Plug 'wincent/ferret', { 'on': ['Ack', 'Acks', 'Lack', 'Qargs'] }
+Plug 'wincent/ferret'
 let g:FerretMap=0
 
 " Show git changes {{{2
@@ -407,6 +407,9 @@ xnoremap <leader>r :call RubyHashesSelected()<CR>
 " Find all TODOs and FIXMEs {{{2
 
 nnoremap <leader>t :Ack FIXME\|TODO<cr>
+
+" Find all occurances under cursor {{{2
+nmap <leader>f <Plug>(FerretAckWord)
 
 " Set List {{{2
 
