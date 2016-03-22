@@ -408,7 +408,7 @@ xnoremap <leader>r :call RubyHashesSelected()<CR>
 
 nnoremap <leader>t :Ack FIXME\|TODO<cr>
 
-" Set List {{{2 
+" Set List {{{2
 
 nnoremap <leader>l :set list!<cr>
 
