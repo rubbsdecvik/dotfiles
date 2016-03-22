@@ -161,10 +161,6 @@ Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow', 'GundoHide', 'GundoRe
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-" Vim Wiki {{{2
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/Dropbox/wiki'}]
-
 " Better directory navigation {{{2
 Plug 'justinmk/vim-dirvish', { 'on': ['Dirvish','Shdo'] }
 
@@ -295,16 +291,6 @@ let g:syntastic_mode_map = {
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless use of a variable in void context'}
 
-
-""""""""""""""""""""""""""""""""""""""" Vimwiki file settings {{{1
-augroup vimwikisettings
-  autocmd!
-  autocmd FileType vimwiki setlocal shiftwidth=2
-  autocmd FileType vimwiki setlocal tabstop=2
-  autocmd FileType vimwiki nmap <leader>we <Plug>VimwikiSplitLink
-  autocmd FileType vimwiki nmap <leader>wq <Plug>VimwikiVSplitLink
-  autocmd FileType vimwiki nmap <leader>wc <Plug>VimwikiToggleListItem
-augroup END
 
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
 " Set annoying directories {{{2
