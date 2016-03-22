@@ -270,6 +270,32 @@ let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
 let g:pandoc#folding#level                   = 0
 let g:pandoc#folding#mode                    = "syntax"
 
+""""""""""""""""""""""""""""""""""""""" Syntastic {{{1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_php_checkers = ['phplint']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
+
+" Check on things when we open them
+let g:syntastic_check_on_open = 0
+
+" Put all errors in the same list
+let g:syntastic_aggregate_errors = 1
+
+" We're not using the local list for anything else anyway
+let g:syntastic_always_populate_loc_list = 1
+
+" Allow some checks to be more active than others
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby","python"],
+    \ "passive_filetypes": ["php"] }
+
+" Eruby's void context warnings are annoying. Get rid of them.
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
+
+
 """"""""""""""""""""""""""""""""""""""" Vimwiki file settings {{{1
 augroup vimwikisettings
   autocmd!
