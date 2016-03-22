@@ -167,6 +167,14 @@ Plug 'justinmk/vim-dirvish', { 'on': ['Dirvish','Shdo'] }
 " Undo Tree {{{2
 Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
 
+" Neoterm {{{2
+if exists(':terminal')
+  Plug 'kassio/neoterm'
+endif
+
+" vim-test {{{2
+Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite','TestLast','TestVisit'] }
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
