@@ -138,13 +138,13 @@ Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGui
 " Auto Tag management {{{2
 Plug 'ludovicchabant/vim-gutentags'
 
+if filereadable(expand('/usr/local/Cellar/universal-ctags/HEAD/bin/ctags'))
+  let g:gutentags_ctags_executable = '/usr/local/Cellar/universal-ctags/HEAD/bin/ctags'
+endif
+
 if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/gems/ripper-tags-0.3.2/lib/ripper-tags.rb'))
   let g:gutentags_ctags_executable_ruby = 'chef exec ripper-tags'
-end
-
-if filereadable(expand('/usr/local/bin/phpctags'))
-  let g:gutentags_ctags_executable_php = 'phpctags'
-end
+endif
 
 " Use EditorConfig, like the rest of Pardot {{{2
 Plug 'editorconfig/editorconfig-vim'
@@ -173,7 +173,12 @@ if exists(':terminal')
 endif
 
 " vim-test {{{2
-Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite','TestLast','TestVisit'] }
+Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite',
+      \'TestLast','TestVisit','RSpec','Cucumber','Minitest','Mocha','Jasmine',
+      \'Nose','PyTest','DjangoTest','ExUnit','ESpec','GoTest','FireplaceTest',
+      \'Bats','VSpec','Busted','PHPUnit','Behat','PHPSpec','Prove','MavenTest']}
+
+let test#strategy = 'neoterm'
 
 " End of Plugin Manager {{{2
 call plug#end()
