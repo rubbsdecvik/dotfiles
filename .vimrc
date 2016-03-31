@@ -189,7 +189,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""" General {{{1
 colorscheme PaperColor
 set background=dark
-set foldlevel=2
+set foldlevel=4
 set foldmethod=syntax
 set incsearch " start moving while searching
 set laststatus=2
