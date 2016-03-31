@@ -199,6 +199,7 @@ set scrolloff=2
 set showcmd
 set smartcase
 set splitright
+set splitbelow
 set ttyfast
 set writebackup
 set tabstop=2
