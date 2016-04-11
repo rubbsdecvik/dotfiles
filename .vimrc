@@ -142,8 +142,8 @@ if filereadable(expand('/usr/local/Cellar/universal-ctags/HEAD/bin/ctags'))
   let g:gutentags_ctags_executable = '/usr/local/Cellar/universal-ctags/HEAD/bin/ctags'
 endif
 
-if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/gems/ripper-tags-0.3.2/lib/ripper-tags.rb'))
-  let g:gutentags_ctags_executable_ruby = 'chef exec ripper-tags'
+if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/bin/ripper-tags'))
+  let g:gutentags_ctags_executable_ruby = '~/.chefdk/gem/ruby/2.1.0/bin/ripper-tags'
 endif
 
 " Use EditorConfig, like the rest of Pardot {{{2
@@ -362,8 +362,13 @@ augroup END
 " Make backspace actually useful {{{2
 set backspace=indent,eol,start
 
-" Completion changes
+" Completion changes {{{2
 set complete =.,w,b,u,t,i,kspell
+
+""""""""""""""""""""""""""""""""""""""" Python {{{1
+augroup python_settings
+  autocmd! FileType python setlocal foldmethod=indent
+augroup END
 
 """"""""""""""""""""""""""""""""""""""" Spellcheck Git commit messages {{{1
 augroup git_settings
