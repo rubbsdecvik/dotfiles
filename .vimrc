@@ -260,6 +260,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " Tabline looks better
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " show status of Obsession and tags
 let g:airline_section_z = airline#section#create(['%{gutentags#statusline("✎")} ','%{ObsessionStatus(''⊞'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
