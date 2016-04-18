@@ -180,6 +180,9 @@ Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite',
 
 let test#strategy = 'neoterm'
 
+" Vim OrgMode {{{2
+Plug 'jceb/vim-orgmode'
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
