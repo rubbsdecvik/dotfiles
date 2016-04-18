@@ -183,6 +183,9 @@ let test#strategy = 'neoterm'
 " Vim OrgMode {{{2
 Plug 'jceb/vim-orgmode'
 
+" Universal Text Linking {{{2
+Plug 'vim-scripts/utl.vim'
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
@@ -398,6 +401,8 @@ else
   nmap <leader>s :tabedit /tmp/scratch.md<cr>
 endif
 
+" Open Global OrgMode {{{2
+nmap <leader>o :tabedit ~/Dropbox/todo.org<cr>
 
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
