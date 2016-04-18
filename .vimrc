@@ -171,6 +171,7 @@ Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen
 if exists(':terminal')
   Plug 'kassio/neoterm'
 endif
+let g:neoterm_position = 'vertical'
 
 " vim-test {{{2
 Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite',
