@@ -245,6 +245,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""" Abbreviations {{{1
 " Insert mode ddate should add date stamp
 iab <expr> ddate strftime("%b %d - %a")
+iab <expr> ttime strftime("%T")
 
 """""""""""""""""""""""""""""""""""""" airline {{{1
 " Airline with Unicode (more portable)
@@ -377,7 +378,10 @@ augroup git_settings
   autocmd! FileType gitcommit setlocal spell
 augroup END
 
-" """""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
+"""""""""""""""""""""""""""""""""""""""" Python Syntax Settings {{{1
+let g:python_highlight_all = 1
+
+"""""""""""""""""""""""""""""""""""""""" Leader shortcuts {{{1
 " Open Vimrc {{{2
 if filereadable(expand('~/workspace/personal/dotfiles/.vimrc'))
   nmap <leader>v :tabedit ~/workspace/personal/dotfiles/.vimrc<CR>
