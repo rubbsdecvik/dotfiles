@@ -1,6 +1,7 @@
 " Without this, utf chars within this file could screw things up. Though any
 " sane OS should figure this shit out by now.
 scriptencoding utf-8
+set encoding=utf-8
 
 " Automatically grab vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
