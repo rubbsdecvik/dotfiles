@@ -1,11 +1,11 @@
 [user]
   name = Patrick Regan
-  email = patrick.regan@salesforce.com
+  email = patrick.rubbs.regan@gmail.com
 	signingkey = 40F40E48C0C97882
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-	excludesfile = /Users/patrick.regan/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [apply]
   whitespace = fix
