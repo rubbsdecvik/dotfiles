@@ -206,7 +206,11 @@ set ttyfast
 set writebackup
 set tabstop=2
 
-set listchars=tab:>›,trail:¬,nbsp:␣,space:·
+try
+  set listchars=tab:>›,trail:¬,nbsp:␣,space:·
+catch /^Vim\%((\a\+)\)\=:E474/
+  set listchars=tab:>›,trail:¬,nbsp:␣
+endtry
 
 " Make Swap file update more often
 set updatetime=250
