@@ -137,7 +137,7 @@ export DEBFULLNAME='Patrick M. Regan'
 export DEBEMAIL='patrick.rubbs.regan@gmail.com'
 
 #Adding Time to Bash History
-export HISTTIMEFORMAT=”%h/%d - %H:%M:%S “
+export HISTTIMEFORMAT='%h/%d - %H:%M:%S '
 
 if [ -f /usr/local/bin/vim ]; then
 	export EDITOR='/usr/local/bin/vim'
