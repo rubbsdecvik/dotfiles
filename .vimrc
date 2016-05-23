@@ -206,6 +206,7 @@ set splitbelow
 set ttyfast
 set writebackup
 set tabstop=2
+set shiftwidth=2
 set nojoinspaces " this is so the `J` command only has one space after a .
 
 try
