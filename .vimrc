@@ -112,8 +112,8 @@ augroup neomake_settings
   autocmd! BufWritePost,BufEnter * Neomake
 augroup END
 
-let g:neomake_logfile='/tmp/neomake.out'
-let g:neomake_chef_foodcritic_remove_invalid_entries = 0
+" let g:neomake_logfile='/tmp/neomake.out'
+" let g:neomake_chef_foodcritic_remove_invalid_entries = 0
 
 " Ctrl-P for everything, including non-vim stuff {{{2
 " Also has a vim plugin for extra wrapping and functionality
