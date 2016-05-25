@@ -1,7 +1,7 @@
 " Without this, utf chars within this file could screw things up. Though any
 " sane OS should figure this shit out by now.
-scriptencoding utf-8
 set encoding=utf-8
+scriptencoding utf-8
 
 " Automatically grab vim-plug {{{1
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -105,11 +105,15 @@ let g:vim_json_syntax_conceal = 0
 " Plug 'scrooloose/syntastic'
 
 " NeoMake async lint checker {{{2
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
+Plug '~/workspace/personal/neomake'
 
 augroup neomake_settings
   autocmd! BufWritePost,BufEnter * Neomake
 augroup END
+
+let g:neomake_logfile='/tmp/neomake.out'
+let g:neomake_chef_foodcritic_remove_invalid_entries = 0
 
 " Ctrl-P for everything, including non-vim stuff {{{2
 " Also has a vim plugin for extra wrapping and functionality
@@ -285,11 +289,11 @@ augroup pandoc_settings
 augroup END
 
 " Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ["json=javascript","ruby","python","bash=sh","sh","yaml","ansible","ini=dosini","dosini"]
+let g:pandoc#syntax#codeblocks#embeds#langs = ['json=javascript','ruby','python','bash=sh','sh','yaml','ansible','ini=dosini','dosini']
 let g:pandoc#formatting#textwidth            = 78
-let g:pandoc#after#modules#enabled           = ["vimcompletesme"]
+let g:pandoc#after#modules#enabled           = ['vimcompletesme']
 let g:pandoc#folding#level                   = 0
-let g:pandoc#folding#mode                    = "syntax"
+let g:pandoc#folding#mode                    = 'syntax'
 
 """"""""""""""""""""""""""""""""""""""" Syntastic {{{1
 " let g:syntastic_javascript_checkers = ['jshint']
@@ -432,6 +436,9 @@ nmap <leader>f <Plug>(FerretAckWord)
 " Set List {{{2
 
 nnoremap <leader>l :set list!<cr>
+
+" Turn Jira Link into Markdown Link to Ticket {{{2
+nnoremap <leader>j :normal $F/l"ly$I- ["lpa](A)
 
 " modline stuff {{{1
 " vim: foldmethod=marker foldlevel=1 tabstop=2 expandtab shiftwidth=2
