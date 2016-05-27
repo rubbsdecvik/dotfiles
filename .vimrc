@@ -197,7 +197,6 @@ call plug#end()
 colorscheme PaperColor
 set background=dark
 set foldlevel=4
-set foldmethod=syntax
 set incsearch " start moving while searching
 set laststatus=2
 set modeline
@@ -228,6 +227,7 @@ if has('unix')
 endif
 
 if exists('+colorcolumn')
+set foldmethod=syntax
   set colorcolumn=80
 endif
 
