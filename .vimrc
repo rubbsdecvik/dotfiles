@@ -102,18 +102,18 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 let g:vim_json_syntax_conceal = 0
 
 " A good in-line linter {{{2
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
-" NeoMake async lint checker {{{2
-" Plug 'benekastah/neomake'
-Plug '~/workspace/personal/neomake'
+" " NeoMake async lint checker {{{2
+" " Plug 'benekastah/neomake'
+" Plug '~/workspace/personal/neomake'
 
-augroup neomake_settings
-  autocmd! BufWritePost,BufEnter * Neomake
-augroup END
+" augroup neomake_settings
+"   autocmd! BufWritePost,BufEnter * Neomake
+" augroup END
 
-" let g:neomake_logfile='/tmp/neomake.out'
-" let g:neomake_chef_foodcritic_remove_invalid_entries = 0
+" " let g:neomake_logfile='/tmp/neomake.out'
+" " let g:neomake_chef_foodcritic_remove_invalid_entries = 0
 
 " Ctrl-P for everything, including non-vim stuff {{{2
 " Also has a vim plugin for extra wrapping and functionality
@@ -296,29 +296,29 @@ let g:pandoc#folding#level                   = 0
 let g:pandoc#folding#mode                    = 'syntax'
 
 """"""""""""""""""""""""""""""""""""""" Syntastic {{{1
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_php_checkers = ['phplint']
-" let g:syntastic_ruby_checkers = ['rubocop']
-" let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_php_checkers = ['phplint']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = '~/.rbenv/shims/rubocop'
 
-" " Check on things when we open them
-" let g:syntastic_check_on_open = 0
+" Check on things when we open them
+let g:syntastic_check_on_open = 0
 
-" " Put all errors in the same list
-" let g:syntastic_aggregate_errors = 1
+" Put all errors in the same list
+let g:syntastic_aggregate_errors = 1
 
-" " We're not using the local list for anything else anyway
-" let g:syntastic_always_populate_loc_list = 1
+" We're not using the local list for anything else anyway
+let g:syntastic_always_populate_loc_list = 1
 
-" " Allow some checks to be more active than others
-" let g:syntastic_mode_map = {
-"     \ "mode": "active",
-"     \ "active_filetypes": ["ruby","python"],
-"     \ "passive_filetypes": ["php"] }
+" Allow some checks to be more active than others
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby","python"],
+    \ "passive_filetypes": ["php"] }
 
-" " Eruby's void context warnings are annoying. Get rid of them.
-" let g:syntastic_eruby_ruby_quiet_messages =
-"     \ {'regex': 'possibly useless use of a variable in void context'}
+" Eruby's void context warnings are annoying. Get rid of them.
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
 
 
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
