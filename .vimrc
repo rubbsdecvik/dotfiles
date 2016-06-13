@@ -57,6 +57,9 @@ Plug 'tpope/vim-jdaddy', { 'for': ['javascript','json'] }
 " Auto-add end in ruby and chef files {{{3
 Plug 'tpope/vim-endwise', { 'for': ['ruby','chef','sh','lua'] }
 
+" Rake for Rake instead of Make {{{3
+Plug 'tpope/vim-rake'
+
 " Helpful key-pairs for common actions: i.e. `]q` = next in qlist {{{3
 Plug 'tpope/vim-unimpaired'
 
