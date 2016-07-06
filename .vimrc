@@ -20,6 +20,7 @@ call plug#begin('~/.vim/bundle')
 " A few colorschemes I like {{{2
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'robertmeta/nofrils'
 
 " ########################################################
 " Here starts God's^H^H^H^H^H Tim Pope's Plugin collection {{{2
@@ -214,6 +215,10 @@ set writebackup
 set tabstop=2
 set shiftwidth=2
 set nojoinspaces " this is so the `J` command only has one space after a .
+
+" Colorscheme changes
+let g:nofrils_strbackgrounds=1
+let g:nofrils_heavycomments=1
 
 try
   set listchars=tab:>›,trail:¬,nbsp:␣,space:·
