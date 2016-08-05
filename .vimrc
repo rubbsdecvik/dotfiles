@@ -258,10 +258,6 @@ augroup text_settings
   autocmd! FileType text setlocal textwidth=78
 augroup END
 
-augroup cronsettings
-  autocmd! filetype crontab setlocal nobackup nowritebackup
-augroup END
-
 """""""""""""""""""""""""""""""""""""" Abbreviations {{{1
 " Insert mode ddate should add date stamp
 iab <expr> ddate strftime("%b %d - %a")
