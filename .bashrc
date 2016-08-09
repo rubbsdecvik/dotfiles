@@ -141,6 +141,10 @@ export HISTTIMEFORMAT='%h/%d - %H:%M:%S '
 
 if [ -f /usr/local/bin/vim ]; then
 	export EDITOR='/usr/local/bin/vim'
+	export VISUAL="$EDITOR"
+else
+	export VISUAL=vim
+	export EDITOR="$VISUAL"
 fi
 
 export CLICOLOR=1
