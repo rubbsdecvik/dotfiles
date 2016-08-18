@@ -129,15 +129,15 @@ nnoremap <silent> <C-p> :Files<CR>
 " More native-like autocomplete than neocomplete {{{2
 Plug 'ajh17/VimCompletesMe'
 
-" Chef sugar {{{2
-Plug 'dougireton/vim-chef'
-
 " Ferret to replace all search plugins {{{2
 Plug 'wincent/ferret'
 let g:FerretMap=0
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
+
+" In-vim Gitk viewer {{{2
+Plug 'junegunn/gv.vim'
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGuidesDisable','IndentGuidesToggle'] }
@@ -153,7 +153,7 @@ if filereadable(expand('~/.chefdk/gem/ruby/2.1.0/bin/ripper-tags'))
   let g:gutentags_ctags_executable_ruby = '~/.chefdk/gem/ruby/2.1.0/bin/ripper-tags'
 endif
 
-" Use EditorConfig, like the rest of Pardot {{{2
+" Use EditorConfig {{{2
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
@@ -161,9 +161,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 Plug 'wincent/terminus'
 " Don't change cursor shape. It's incompatible with older Vim's anyway
 let g:TerminusCursorShape=0
-
-" Visualize Undo Tree {{{2
-Plug 'sjl/gundo.vim', { 'on': ['GundoToggle', 'GundoShow', 'GundoHide', 'GundoRenderGraph'] }
 
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
@@ -179,14 +176,6 @@ if exists(':terminal')
   Plug 'kassio/neoterm'
 endif
 let g:neoterm_position = 'vertical'
-
-" vim-test {{{2
-Plug 'janko-m/vim-test', { 'on': ['TestNearest','TestFile','TestSuite',
-      \'TestLast','TestVisit','RSpec','Cucumber','Minitest','Mocha','Jasmine',
-      \'Nose','PyTest','DjangoTest','ExUnit','ESpec','GoTest','FireplaceTest',
-      \'Bats','VSpec','Busted','PHPUnit','Behat','PHPSpec','Prove','MavenTest']}
-
-let test#strategy = 'neoterm'
 
 " Wakatime for Tracking {{{2
 Plug 'wakatime/vim-wakatime'
