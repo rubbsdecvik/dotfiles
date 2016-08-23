@@ -284,7 +284,7 @@ augroup pandoc_settings
 augroup END
 
 " Pandoc internal codeblock highlights
-let g:pandoc#syntax#codeblocks#embeds#langs = ['json=javascript','ruby','python','bash=sh','sh','yaml','ansible','ini=dosini','dosini']
+let g:pandoc#syntax#codeblocks#embeds#langs = ['json=javascript','ruby','python','bash=sh','shell=sh','sh','yaml','ansible','ini=dosini','dosini']
 let g:pandoc#formatting#textwidth            = 78
 let g:pandoc#after#modules#enabled           = ['vimcompletesme']
 let g:pandoc#folding#level                   = 0
