@@ -399,8 +399,8 @@ else
 endif
 
 " Open ScratchPad {{{2
-if filereadable(expand('~/Dropbox/Scratchpad.md'))
-  nmap <leader>s :tabedit ~/Dropbox/Scratchpad.md<cr>
+if filereadable(expand('~/workspace/personal/wiki/README.md'))
+  nmap <leader>s :tabedit ~/workspace/personal/wiki/README.md<cr>
 elseif filereadable(expand('~/tmp/notes.md'))
   nmap <leader>s :tabedit ~/tmp/notes.md<cr>
 else
