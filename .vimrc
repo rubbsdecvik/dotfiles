@@ -1,6 +1,6 @@
 " Without this, utf chars within this file could screw things up. Though any
 " sane OS should figure this shit out by now.
-set encoding=utf-8
+" set encoding=utf-8
 scriptencoding utf-8
 
 " Automatically grab vim-plug {{{1
@@ -177,6 +177,9 @@ if exists(':terminal')
 endif
 let g:neoterm_position = 'vertical'
 
+" Vimwiki {{{2
+Plug 'vimwiki/vimwiki'
+
 " Wakatime for Tracking {{{2
 Plug 'wakatime/vim-wakatime'
 
@@ -189,7 +192,8 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""" General {{{1
 colorscheme PaperColor
 set background=dark
-set foldlevel=4
+set foldmethod=syntax
+set foldlevelstart=4
 set incsearch " start moving while searching
 set laststatus=2
 set modeline
@@ -223,8 +227,8 @@ if has('unix')
   set dictionary=/usr/share/dict/words
 endif
 
+" 80 column limit
 if exists('+colorcolumn')
-set foldmethod=syntax
   set colorcolumn=80
 endif
 
@@ -287,7 +291,7 @@ augroup END
 let g:pandoc#syntax#codeblocks#embeds#langs = ['json=javascript','ruby','python','bash=sh','shell=sh','sh','yaml','ansible','ini=dosini','dosini']
 let g:pandoc#formatting#textwidth            = 78
 let g:pandoc#after#modules#enabled           = ['vimcompletesme']
-let g:pandoc#folding#level                   = 0
+let g:pandoc#folding#level                   = 1
 let g:pandoc#folding#mode                    = 'syntax'
 let g:pandoc#modules#disabled = ['chdir']
 
@@ -315,6 +319,15 @@ let g:syntastic_mode_map = {
 " Eruby's void context warnings are annoying. Get rid of them.
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless use of a variable in void context'}
+
+
+"""""""""""""""""""""""""""""""""""""" vimwiki settings {{{1
+let g:vimwiki_list= [{'path': '~/workspace/personal/wiki', 'path_html': '~/wiki', 'auto_export': 1, 'auto_toc': 1, 'automatic_nested_syntaxes': 1 }]
+" augroup vimwiki_settings
+"   autocmd!
+"   autocmd FileType vimwiki setlocal foldmethod=syntax
+"   autocmd FileType vimwiki setlocal foldlevel=1
+" augroup END
 
 
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
@@ -399,14 +412,14 @@ else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
-" Open ScratchPad {{{2
-if filereadable(expand('~/workspace/personal/wiki/README.md'))
-  nmap <leader>s :vsplit ~/workspace/personal/wiki/README.md<cr>
-elseif filereadable(expand('~/tmp/notes.md'))
-  nmap <leader>s :vsplit ~/tmp/notes.md<cr>
-else
-  nmap <leader>s :vsplit /tmp/scratch.md<cr>
-endif
+" " Open ScratchPad {{{2
+" if filereadable(expand('~/workspace/personal/wiki/README.md'))
+"   nmap <leader>s :vsplit ~/workspace/personal/wiki/README.md<cr>
+" elseif filereadable(expand('~/tmp/notes.md'))
+"   nmap <leader>s :vsplit ~/tmp/notes.md<cr>
+" else
+"   nmap <leader>s :vsplit /tmp/scratch.md<cr>
+" endif
 
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
