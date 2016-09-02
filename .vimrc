@@ -289,6 +289,7 @@ let g:pandoc#formatting#textwidth            = 78
 let g:pandoc#after#modules#enabled           = ['vimcompletesme']
 let g:pandoc#folding#level                   = 0
 let g:pandoc#folding#mode                    = 'syntax'
+let g:pandoc#modules#disabled = ['chdir']
 
 """"""""""""""""""""""""""""""""""""""" Syntastic {{{1
 let g:syntastic_javascript_checkers = ['jshint']
@@ -400,11 +401,11 @@ endif
 
 " Open ScratchPad {{{2
 if filereadable(expand('~/workspace/personal/wiki/README.md'))
-  nmap <leader>s :tabedit ~/workspace/personal/wiki/README.md<cr>
+  nmap <leader>s :vsplit ~/workspace/personal/wiki/README.md<cr>
 elseif filereadable(expand('~/tmp/notes.md'))
-  nmap <leader>s :tabedit ~/tmp/notes.md<cr>
+  nmap <leader>s :vsplit ~/tmp/notes.md<cr>
 else
-  nmap <leader>s :tabedit /tmp/scratch.md<cr>
+  nmap <leader>s :vsplit /tmp/scratch.md<cr>
 endif
 
 " Fix Ruby Hashes {{{2
