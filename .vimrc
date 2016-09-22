@@ -180,6 +180,9 @@ let g:neoterm_position = 'vertical'
 " Vimwiki {{{2
 Plug 'vimwiki/vimwiki'
 
+" Calendar {{{2
+Plug 'itchyny/calendar.vim'
+
 " Wakatime for Tracking {{{2
 Plug 'wakatime/vim-wakatime'
 
@@ -322,7 +325,11 @@ let g:syntastic_eruby_ruby_quiet_messages =
 
 
 """""""""""""""""""""""""""""""""""""" vimwiki settings {{{1
-let g:vimwiki_list= [{'path': '~/workspace/personal/wiki', 'path_html': '~/wiki', 'auto_export': 1, 'auto_toc': 1, 'automatic_nested_syntaxes': 1 }]
+let g:vimwiki_list= [{'path': '~/workspace/personal/wiki',
+                    \ 'path_html': '~/wiki', 'auto_export': 1,
+                    \ 'auto_toc': 1, 'automatic_nested_syntaxes': 1,
+                    \ 'template_path': '~/wiki/assets/',
+                    \ 'template_default': 'default', 'template_ext': '.tpl'}]
 " augroup vimwiki_settings
 "   autocmd!
 "   autocmd FileType vimwiki setlocal foldmethod=syntax
