@@ -105,19 +105,19 @@ Plug 'elzr/vim-json', { 'for': ['javascript','json'] }
 """""""""""""""""""""""""""""""""""""" Json, show quotes (don't conceal) {{{3
 let g:vim_json_syntax_conceal = 0
 
+" Linting {{{2
+
+" If: we have async support:
+" A New async linter {{{3
+if has('timers')
+  Plug 'w0rp/ale'
+
+" Else: Fall back to non-async linter instead
+else
 " A good in-line linter {{{2
-Plug 'scrooloose/syntastic'
+  Plug 'scrooloose/syntastic'
 
-" " NeoMake async lint checker {{{2
-" " Plug 'benekastah/neomake'
-" Plug '~/workspace/personal/neomake'
-
-" augroup neomake_settings
-"   autocmd! BufWritePost,BufEnter * Neomake
-" augroup END
-
-" " let g:neomake_logfile='/tmp/neomake.out'
-" " let g:neomake_chef_foodcritic_remove_invalid_entries = 0
+endif
 
 " Ctrl-P for everything, including non-vim stuff {{{2
 " Also has a vim plugin for extra wrapping and functionality
