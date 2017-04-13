@@ -140,12 +140,13 @@ export DEBEMAIL='patrick.rubbs.regan@gmail.com'
 export HISTTIMEFORMAT='%h/%d - %H:%M:%S '
 
 if [ -f /usr/local/bin/vim ]; then
-	export EDITOR='/usr/local/bin/vim'
-	export VISUAL="$EDITOR"
+	export VISUAL='/usr/local/bin/vim'
+elif [ -f /usr/bin/vimx ]; then
+	export VISUAL='/usr/bin/vimx'
 else
 	export VISUAL=vim
-	export EDITOR="$VISUAL"
 fi
+export EDITOR="$VISUAL"
 
 export CLICOLOR=1
 
