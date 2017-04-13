@@ -143,6 +143,7 @@ if [ -f /usr/local/bin/vim ]; then
 	export VISUAL='/usr/local/bin/vim'
 elif [ -f /usr/bin/vimx ]; then
 	export VISUAL='/usr/bin/vimx'
+	alias vim='vimx'
 else
 	export VISUAL=vim
 fi
