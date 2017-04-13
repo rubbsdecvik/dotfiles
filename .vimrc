@@ -419,15 +419,6 @@ else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
-" " Open ScratchPad {{{2
-" if filereadable(expand('~/workspace/personal/wiki/README.md'))
-"   nmap <leader>s :vsplit ~/workspace/personal/wiki/README.md<cr>
-" elseif filereadable(expand('~/tmp/notes.md'))
-"   nmap <leader>s :vsplit ~/tmp/notes.md<cr>
-" else
-"   nmap <leader>s :vsplit /tmp/scratch.md<cr>
-" endif
-
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
 
