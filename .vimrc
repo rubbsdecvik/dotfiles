@@ -419,6 +419,9 @@ else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
+" Open Email Scratchpad {{{1
+nmap <leader>e :tabedit ~/tmp/email.md
+
 " Fix Ruby Hashes {{{2
 " Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
 
