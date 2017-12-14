@@ -114,7 +114,7 @@ if has('timers')
 
 " Else: Fall back to non-async linter instead
 else
-" A good in-line linter {{{2
+" A good in-line linter {{{3
   Plug 'scrooloose/syntastic'
 
 endif
@@ -165,26 +165,8 @@ let g:TerminusCursorShape=0
 " Because working with CSV within vim is actually fun and useful {{{2
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-" Better directory navigation {{{2
-Plug 'justinmk/vim-dirvish', { 'on': ['Dirvish','Shdo'] }
-
 " Undo Tree {{{2
 Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
-
-" Neoterm {{{2
-if exists(':terminal')
-  Plug 'kassio/neoterm'
-endif
-let g:neoterm_position = 'vertical'
-
-" Vimwiki {{{2
-Plug 'vimwiki/vimwiki'
-
-" Calendar {{{2
-Plug 'itchyny/calendar.vim'
-
-" Wakatime for Tracking {{{2
-Plug 'wakatime/vim-wakatime'
 
 " End of Plugin Manager {{{2
 call plug#end()

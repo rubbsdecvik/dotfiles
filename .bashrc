@@ -152,3 +152,4 @@ export EDITOR="$VISUAL"
 export CLICOLOR=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+ . /home/pregan/.openshift/bash_autocomplete
