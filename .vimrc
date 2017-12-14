@@ -306,19 +306,6 @@ let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless use of a variable in void context'}
 
 
-"""""""""""""""""""""""""""""""""""""" vimwiki settings {{{1
-let g:vimwiki_list= [{'path': '~/workspace/personal/wiki',
-                    \ 'path_html': '~/wiki', 'auto_export': 1,
-                    \ 'auto_toc': 1, 'automatic_nested_syntaxes': 1,
-                    \ 'template_path': '~/wiki/assets/',
-                    \ 'template_default': 'default', 'template_ext': '.tpl'}]
-" augroup vimwiki_settings
-"   autocmd!
-"   autocmd FileType vimwiki setlocal foldmethod=syntax
-"   autocmd FileType vimwiki setlocal foldlevel=1
-" augroup END
-
-
 """""""""""""""""""""""""""""""""""""" internal tweaks {{{1
 " Set annoying directories {{{2
 " Save your backups to a less annoying place than the current directory.
@@ -401,22 +388,8 @@ else
   nmap <leader>v :tabedit $MYVIMRC<CR>
 endif
 
-" Open Email Scratchpad {{{1
+" Open Email Scratchpad {{{2
 nmap <leader>e :tabedit ~/tmp/email.md
-
-" Fix Ruby Hashes {{{2
-" Shamelessly stolen from http://www.economyofeffort.com/2014/07/09/vim-tricks-for-ruby-hashes/
-
-function! RubyHashesAll()
-  :%s/:\([^ ]*\)\(\s*\)=>/\1:/ge
-endfunction
-
-function! RubyHashesSelected()
-  :'<,'>s/:\([^ ]*\)\(\s*\)=>/\1:/ge
-endfunction
-
-nnoremap <leader>r :call RubyHashesAll()<CR>
-xnoremap <leader>r :call RubyHashesSelected()<CR>
 
 " Find all TODOs and FIXMEs {{{2
 
