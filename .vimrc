@@ -168,6 +168,18 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 " Undo Tree {{{2
 Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
 
+" SimpleNote Integration {{{2
+Plug 'mrtazz/simplenote.vim', { 'on': ['SimplenoteList','SimplenoteUpdate','SimplenoteVersionInfo','SimplenoteVersion','SimplenoteTrash','SimplenoteDelete','SimplenoteNew','SimplenoteTag','SimplenotePin','SimplenoteUnpin','SimplenoteOpen'] }
+
+" Simplenote configuration {{{3
+source ~/.simplenoterc
+
+" Open splits vertically
+let g:SimplenoteVertical=1
+
+" Use markdown
+let g:SimplenoteFiletype="pandoc"
+
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
