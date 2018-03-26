@@ -11,4 +11,3 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/build-tools
 export BYOBU_PREFIX=$(brew --prefix)
 
-eval "$(hub alias -s)"

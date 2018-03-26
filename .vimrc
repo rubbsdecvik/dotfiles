@@ -169,10 +169,12 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
 
 " SimpleNote Integration {{{2
-Plug 'mrtazz/simplenote.vim', { 'on': ['SimplenoteList','SimplenoteUpdate','SimplenoteVersionInfo','SimplenoteVersion','SimplenoteTrash','SimplenoteDelete','SimplenoteNew','SimplenoteTag','SimplenotePin','SimplenoteUnpin','SimplenoteOpen'] }
+if filereadable(expand('~/.simplenoterc'))
+  Plug 'mrtazz/simplenote.vim', { 'on': ['SimplenoteList','SimplenoteUpdate','SimplenoteVersionInfo','SimplenoteVersion','SimplenoteTrash','SimplenoteDelete','SimplenoteNew','SimplenoteTag','SimplenotePin','SimplenoteUnpin','SimplenoteOpen'] }
 
-" Simplenote configuration {{{3
-source ~/.simplenoterc
+  " Simplenote configuration {{{3
+  source ~/.simplenoterc
+endif
 
 " Open splits vertically
 let g:SimplenoteVertical=1
