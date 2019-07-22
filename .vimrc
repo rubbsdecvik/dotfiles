@@ -168,9 +168,6 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 " Undo Tree {{{2
 Plug 'mbbill/undotree/', { 'on': ['UndotreeToggle','UndotreeClose','UntotreeOpen'] }
 
-" Org mode {{{2
-Plug 'jceb/vim-orgmode'
-
 " End of Plugin Manager {{{2
 call plug#end()
 " }}}1 End of Plugins
