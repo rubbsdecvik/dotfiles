@@ -126,18 +126,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } | Plug 
 " FZF mappings {{{3
 nnoremap <silent> <C-p> :Files<CR>
 
-" More native-like autocomplete than neocomplete {{{2
-Plug 'ajh17/VimCompletesMe'
-
 " Ferret to replace all search plugins {{{2
 Plug 'wincent/ferret'
 let g:FerretMap=0
 
 " Show git changes {{{2
 Plug 'airblade/vim-gitgutter'
-
-" In-vim Gitk viewer {{{2
-Plug 'junegunn/gv.vim'
 
 " Super helpful in whitespace significant langs, like YAML or Python {{{2
 Plug 'nathanaelkane/vim-indent-guides', { 'on': ['IndentGuidesEnable','IndentGuidesDisable','IndentGuidesToggle'] }
