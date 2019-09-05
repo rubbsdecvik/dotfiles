@@ -30,8 +30,6 @@ Plug 'tpope/vim-repeat'
 
 " Git integration {{{3
 Plug 'tpope/vim-fugitive' " Actual git commands
-let g:fugitive_github_domains = ['https://github.com', 'https://git.dev.pardot.com']
-
 Plug 'tpope/vim-git' " Syntax for git related things
 
 " Github Integration {{{3
