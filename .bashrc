@@ -130,7 +130,7 @@ if  hash brew 2>/dev/null; then
 fi
 
 #Add the bin dir to the search path
-export PATH=$PATH:~/bin:~/bin/eclipse
+export PATH=~/bin:~/bin/eclipse:$PATH
 
 #Info for Development
 export DEBFULLNAME='Patrick M. Regan'
